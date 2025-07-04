@@ -43,7 +43,7 @@ const Contact = () => {
 
   if (Object.keys(errs).length === 0) {
     try {
-      const response = await fetch("portfolio-website-backend-production-f66e.up.railway.app/api/contact", {
+      const response = await fetch("https://portfolio-website-backend-production-f66e.up.railway.app/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
