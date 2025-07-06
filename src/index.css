@@ -1,0 +1,24 @@
+ /* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import "tailwindcss";
+
+/* index.css or global.css */
+.dark-mode .dark-section {
+  background-color: #000000;
+  color: white;
+}
+
+.dark-mode .dark-card {
+  background-color: #000000;
+  color: white;
+}
+
+.dark-mode .dark-text {
+  color: white;
+}
+
+.dark-mode .dark-border {
+  border-color: #444;
+}
