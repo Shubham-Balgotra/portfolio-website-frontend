@@ -70,7 +70,7 @@ const Contact = ({ darkMode }) => {
   return (
     <section
       id="contact"
-      className={`mt-10 w-full px-4 py-10 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto ${
+      className={`min-h-screen mt-10 w-full px-4 py-10 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto ${
         darkMode
           ? "bg-cover bg-center bg-no-repeat bg-gray-800 text-white"
           : "bg-cover bg-center bg-no-repeat text-gray-800"
