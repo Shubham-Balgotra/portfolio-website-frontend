@@ -3,7 +3,7 @@ import resume from "../../assets/ShubhamBalgotra.pdf";
 const Resume = ({ darkMode }) => {
   return (
     <section
-      className={`mt-10 w-full px-4 py-10 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto ${
+      className={`min-h-screen mt-10 w-full px-4 py-10 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto ${
         darkMode
           ? "bg-gradient-to-r from-[#000000] via-[#121b27] to-[#010d1b] text-gray-400"
           : "bg-gradient-to-r from-[#cc95c0] via-[#dbd4b4] to-[#7aa1d2] text-gray-700"
@@ -17,7 +17,7 @@ const Resume = ({ darkMode }) => {
       >
         Resume
       </h2>
-      <div className={`min-h-screen max-w-6xl mx-auto ${darkMode?"bg-black text-gray-300 border hover:border-blue-400":"bg-white"} shadow-lg rounded-lg p-8`}>
+      <div className={`max-w-6xl mx-auto ${darkMode?"bg-black text-gray-300 border hover:border-blue-400":"bg-white"} shadow-lg rounded-lg p-8`}>
         {/* Header */}
         <div className="mb-6">
           <h1 className="text-3xl font-bold text-blue-700">Shubham Balgotra</h1>
