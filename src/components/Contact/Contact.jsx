@@ -93,8 +93,8 @@ const Contact = ({ darkMode }) => {
       <div className="absolute inset-0  bg-opacity-100 z-0"></div>
 
       <div
-        className={`relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center             : "bg-white/60 text-gray-800"
-         backdrop-blur-sm p-10 rounded-xl shadow-2xl ${darkMode?"bg-black/95":"bg-white/25"}`}
+        className={`relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center backdrop-blur-sm p-10 rounded-xl shadow-2xl ${darkMode ? "bg-black/95" : "bg-white/60 text-gray-800"}`}
+
         style={darkMode ? { opacity: 0.9 } : {}}
       >
         {/* Left: Contact Title */}
