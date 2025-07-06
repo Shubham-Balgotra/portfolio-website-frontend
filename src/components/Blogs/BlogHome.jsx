@@ -8,7 +8,7 @@ const BlogHome = ({ darkMode }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/blogs") // "https://portfolio-website-backend-production-f66e.up.railway.app/api/contact"
+      .get("https://portfolio-website-backend-production-f66e.up.railway.app/api/blogs") 
       .then((res) => setBlogs(res.data))
       .catch((err) => console.error("Error fetching blogs:", err));
   }, []);
