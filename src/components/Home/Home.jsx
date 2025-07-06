@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 export default function Home({ darkMode }) {
   return (
    <section
-  className={`mt-16 w-full min-h-[90vh] flex flex-col items-center justify-center text-center px-4 relative overflow-hidden ${
+  className={`min-h-screen mt-16 w-full min-h-[90vh] flex flex-col items-center justify-center text-center px-4 relative overflow-hidden ${
     darkMode
       ? "bg-black text-white"
       : "bg-gradient-to-br from-gray-50 to-blue-100 text-gray-800"
