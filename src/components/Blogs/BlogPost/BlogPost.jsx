@@ -11,7 +11,7 @@ const BlogPost = ({darkMode}) => {
     if (!slug) return;
 
     axios
-      .get(`http://localhost:5000/api/blogs/slug/${slug}`) //"https://portfolio-website-backend-production-f66e.up.railway.app/api/contact"
+      .get(`https://portfolio-website-backend-production-f66e.up.railway.app/api/blogs/slug/${slug}`) 
       .then((res) => setBlog(res.data))
       .catch((err) => {
         console.error("Error fetching blog:", err);
