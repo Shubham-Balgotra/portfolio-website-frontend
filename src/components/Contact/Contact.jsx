@@ -44,10 +44,14 @@ const Contact = ({ darkMode }) => {
 
     if (Object.keys(errs).length === 0) {
       try {
-        const response = await fetch("https://portfolio-website-backend-production-f66e.up.railway.app/api/contact", { 
-          },
-          body: JSON.stringify(form),
-        });
+       const response = await fetch("https://portfolio-website-backend-production-f66e.up.railway.app/api/contact", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(form),
+});
+
 
         const data = await response.json();
 
