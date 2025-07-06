@@ -25,7 +25,7 @@ function App() {
       {/* Apply dark/light mode styles to full layout */}
       <main className={`min-h-screen mt-3 max-w-screen mx-auto px-10 py-4 ${darkMode
           ? "bg-gradient-to-r from-[#000000] via-[#121b27] to-[#010d1b] text-gray-400"
-          : "bg-gradient-to-r from-[#cc95c0] via-[#dbd4b4] to-[#7aa1d2] text-gray-700"
+          : "bg-gradient-to-r from-[#ffffff] via-[#96b3d4] to-[#6797da] text-gray-700"
       }`}>
         <Routes>
           <Route path="/" element={<Home darkMode={darkMode} />} />
