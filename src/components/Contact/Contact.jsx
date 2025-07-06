@@ -117,7 +117,8 @@ const Contact = ({ darkMode }) => {
     //           You can also find my work and connect with me on GitHub and LinkedIn
     //           – see the About section.
     //         </p>
-    //       </div>    <section
+    //       </div>   
+    <section
       id="contact"
       className={`mt-10 w-full px-4 py-10 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto ${
         darkMode
