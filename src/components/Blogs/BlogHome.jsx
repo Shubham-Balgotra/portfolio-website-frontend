@@ -1,17 +1,32 @@
-// export default BlogHome;
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 const BlogHome = ({ darkMode }) => {
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get("https://portfolio-website-backend-production-f66e.up.railway.app/api/blogs") 
+      .get("https://portfolio-website-backend-production-f66e.up.railway.app/api/blogs")
       .then((res) => setBlogs(res.data))
-      .catch((err) => console.error("Error fetching blogs:", err));
+      .catch((err) => console.error("Error fetching blogs:", err))
+      .finally(() => setLoading(false));
   }, []);
+
+  if (loading) {
+    return (
+      <div
+        className={`min-h-screen flex items-center justify-center ${
+          darkMode
+            ? "bg-gradient-to-r from-[#000000] via-[#121b27] to-[#010d1b] text-white"
+            : "bg-gradient-to-r from-[#cc95c0] via-[#dbd4b4] to-[#7aa1d2] text-gray-900"
+        }`}
+      >
+        <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   return (
     <section
@@ -28,9 +43,11 @@ const BlogHome = ({ darkMode }) => {
       >
         Blogs
       </h2>
-      <p className={`text-center text-gray-500 mb-12 ${
+      <p
+        className={`text-center text-gray-500 mb-12 ${
           darkMode ? "text-gray-300" : "text-gray-800"
-        }`}>
+        }`}
+      >
         Articles, tutorials, and dev notes.
       </p>
 
@@ -38,17 +55,28 @@ const BlogHome = ({ darkMode }) => {
         {blogs.map((post) => (
           <div
             key={post._id}
-            className={`${darkMode?"bg-black text-blue-400 hover:text-blue-600":"bg-white text-gray-800 hover:text-blue-600 "} rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border hover:border-blue-400"   `}       >
+            className={`${
+              darkMode
+                ? "bg-black text-blue-400 hover:text-blue-600"
+                : "bg-white text-gray-800 hover:text-blue-600"
+            } rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border hover:border-blue-400`}
+          >
             <div className="mb-4">
               <p className="text-gray-400 text-xs tracking-wide uppercase">
                 {new Date(post.date).toLocaleDateString()}
               </p>
-              <h3 className="text-xl font-semibold  transition-colors duration-200">
+              <h3 className="text-xl font-semibold transition-colors duration-200">
                 {post.title}
               </h3>
             </div>
 
-            <p className={`${darkMode?"text-gray-300":"text-gray-600"} mb-4 line-clamp-3`}>{post.excerpt}</p>
+            <p
+              className={`${
+                darkMode ? "text-gray-300" : "text-gray-600"
+              } mb-4 line-clamp-3`}
+            >
+              {post.excerpt}
+            </p>
 
             <div className="flex flex-wrap gap-2 text-sm mb-4">
               {post.tags.map((tag, i) => (
