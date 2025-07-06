@@ -17,7 +17,7 @@ const Resume = ({ darkMode }) => {
       >
         Resume
       </h2>
-      <div className={`max-w-6xl mx-auto ${darkMode?"bg-black text-gray-300 border hover:border-blue-400":"bg-white"} shadow-lg rounded-lg p-8`}>
+      <div className={`min-h-screen max-w-6xl mx-auto ${darkMode?"bg-black text-gray-300 border hover:border-blue-400":"bg-white"} shadow-lg rounded-lg p-8`}>
         {/* Header */}
         <div className="mb-6">
           <h1 className="text-3xl font-bold text-blue-700">Shubham Balgotra</h1>
