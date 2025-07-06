@@ -24,11 +24,7 @@ const projects = [
 export default function Projects({ darkMode }) {
   return (
     <section
-      className={`min-h-screen mt-10 w-full px-4 py-10 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto ${
-        darkMode
-          ? "bg-gradient-to-r from-[#000000] via-[#121b27] to-[#010d1b] text-gray-400"
-          : "bg-gradient-to-r from-[#cc95c0] via-[#dbd4b4] to-[#7aa1d2] text-gray-700"
-      }`}
+      className={` mt-10 w-full px-4 py-10 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto`}
     >
       {" "}
        <h2
