@@ -51,7 +51,7 @@ const Contact = ({ darkMode }) => {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(form),
+            
           }
         ); // Removed extra brace
 
