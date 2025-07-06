@@ -22,7 +22,7 @@ function App() {
       <Navbar  darkMode={darkMode} setDarkMode={setDarkMode}/>
 
       {/* Apply dark/light mode styles to full layout */}
-         <main className="flex-grow">
+         <main className="min-h-svh">
         <Routes>
           <Route path="/" element={<Home  darkMode={darkMode}/>} />
           <Route path="/about" element={<About  darkMode={darkMode}/>} />
