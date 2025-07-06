@@ -44,16 +44,13 @@ const Contact = ({ darkMode }) => {
 
     if (Object.keys(errs).length === 0) {
       try {
-        const response = await fetch(
-          "https://portfolio-website-backend-production-f66e.up.railway.app/api/contact",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            
-          }
-        ); // Removed extra brace
+        const response = await fetch("https://portfolio-website-backend-production-f66e.up.railway.app/api/contact", { // "https://portfolio-website-backend-production-f66e.up.railway.app/api/contact"
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        });
 
         const data = await response.json();
 
@@ -61,7 +58,7 @@ const Contact = ({ darkMode }) => {
           alert("✅ Message sent successfully!");
           setForm({ fullName: "", email: "", phone: "", message: "" });
         } else {
-          alert(`❌ Failed to send message: ${data.message || "Unknown error"}`);
+          alert("❌ Failed to send message: " + data.message);
         }
       } catch (err) {
         console.error("Error submitting contact form:", err);
@@ -73,37 +70,39 @@ const Contact = ({ darkMode }) => {
   return (
     <section
       id="contact"
-      className={`min-h-screen mt-10 w-full px-4 py-10 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto ${
+      className={`mt-10 w-full px-4 py-10 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto ${
         darkMode
           ? "bg-cover bg-center bg-no-repeat bg-gray-800 text-white"
           : "bg-cover bg-center bg-no-repeat text-gray-800"
       }`}
       style={
-        darkMode
-          ? { backgroundImage: `url(${contactImgDark})` }
-          : { backgroundImage: `url(${contactImg})` }
+        !darkMode
+          ? { backgroundImage: `url(${contactImg})` }
+          : { backgroundImage: `url(${contactImgDark})` }
       }
     >
       <h2
-        className={`text-2xl md:text-3xl font-bold mb-6 border-b pb-2 ${
+        className={`text-2xl md:text-3xl font-bold  mb-6 border-b pb-2 ${
           darkMode ? "text-white" : "text-gray-800"
         }`}
       >
         Contact Me
       </h2>
-      <div className="absolute inset-0 bg-opacity-100 z-0"></div>
+      {/* Optional Overlay for readability */}
+      <div className="absolute inset-0  bg-opacity-100 z-0"></div>
 
-      <div
-        className={`relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center backdrop-blur-sm p-10 rounded-xl shadow-2xl ${
-          darkMode ? "bg-black/95" : "bg-white/60 text-gray-800"
-        }`}
-        style={darkMode ? { opacity: 0.9 } : {}}
-      >
+   <div
+  className={`relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center backdrop-blur-sm p-10 rounded-xl shadow-2xl ${darkMode ? "bg-black/95" : "bg-white/60 text-gray-800"}`}
+  style={darkMode ? { opacity: 0.9 } : {}}
+>
+
+        {/* Left: Contact Title */}
         <div className="text-left">
+          {/* <h2 className="text-4xl font-bold text-gray-800 mb-4">Contact Me</h2> */}
           <p
             className={`${
-              darkMode ? "text-gray-300" : "text-gray-700"
-            } text-lg`}
+              darkMode ? "text-gray-300 " : "text-gray-700 "
+            }text-lg`}
           >
             Have a project in mind or just want to say hello? <br />
             Fill out the form and I’ll get back to you as soon as I can.
@@ -111,21 +110,23 @@ const Contact = ({ darkMode }) => {
           <br />
           <p
             className={`${
-              darkMode ? "text-gray-300" : "text-gray-700"
-            } text-lg`}
+              darkMode ? "text-gray-300 " : "text-gray-700 "
+            }text-lg`}
           >
             You can also find my work and connect with me on Github and LinkedIn
             - see the About section.
           </p>
         </div>
 
+        {/* Right: Form */}
         <div>
           <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+            {/* Full Name */}
             <div>
               <label
                 className={`block text-sm font-medium ${
-                  darkMode ? "text-gray-100" : "text-gray-700"
-                } mb-1`}
+                  darkMode ? "text-gray-100 " : "text-gray-700 "
+                }  mb-1`}
               >
                 Full Name <span className="text-red-500">*</span>
               </label>
@@ -135,7 +136,7 @@ const Contact = ({ darkMode }) => {
                 value={form.fullName}
                 onChange={handleChange}
                 className={`w-full px-4 py-2 border ${
-                  darkMode ? "text-gray-400 bg-gray-700" : "text-gray-800"
+                  darkMode ? "text-gray-400" : ""
                 } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
               />
               {errors.fullName && (
@@ -143,11 +144,12 @@ const Contact = ({ darkMode }) => {
               )}
             </div>
 
+            {/* Email */}
             <div>
               <label
                 className={`block text-sm font-medium ${
-                  darkMode ? "text-gray-100" : "text-gray-700"
-                } mb-1`}
+                  darkMode ? "text-gray-100 " : "text-gray-700 "
+                }  mb-1`}
               >
                 Email <span className="text-red-500">*</span>
               </label>
@@ -157,7 +159,7 @@ const Contact = ({ darkMode }) => {
                 value={form.email}
                 onChange={handleChange}
                 className={`w-full px-4 py-2 border ${
-                  darkMode ? "text-gray-400 bg-gray-700" : "text-gray-800"
+                  darkMode ? "text-gray-400" : ""
                 } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
               />
               {errors.email && (
@@ -165,11 +167,12 @@ const Contact = ({ darkMode }) => {
               )}
             </div>
 
+            {/* Phone */}
             <div>
               <label
                 className={`block text-sm font-medium ${
-                  darkMode ? "text-gray-100" : "text-gray-700"
-                } mb-1`}
+                  darkMode ? "text-gray-100 " : "text-gray-700 "
+                }  mb-1`}
               >
                 Phone Number <span className="text-red-500">*</span>
               </label>
@@ -179,7 +182,7 @@ const Contact = ({ darkMode }) => {
                 value={form.phone}
                 onChange={handleChange}
                 className={`w-full px-4 py-2 border ${
-                  darkMode ? "text-gray-400 bg-gray-700" : "text-gray-800"
+                  darkMode ? "text-gray-400" : ""
                 } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
                 maxLength={10}
               />
@@ -188,11 +191,12 @@ const Contact = ({ darkMode }) => {
               )}
             </div>
 
+            {/* Message */}
             <div>
               <label
                 className={`block text-sm font-medium ${
-                  darkMode ? "text-gray-100" : "text-gray-700"
-                } mb-1`}
+                  darkMode ? "text-gray-100 " : "text-gray-700 "
+                }  mb-1`}
               >
                 Message <span className="text-red-500">*</span>
               </label>
@@ -202,7 +206,7 @@ const Contact = ({ darkMode }) => {
                 value={form.message}
                 onChange={handleChange}
                 className={`w-full px-4 py-2 border ${
-                  darkMode ? "text-gray-400 bg-gray-700" : "text-gray-800"
+                  darkMode ? "text-gray-400" : ""
                 } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
               />
               {errors.message && (
