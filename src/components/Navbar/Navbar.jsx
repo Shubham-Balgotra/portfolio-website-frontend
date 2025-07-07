@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Navbar = ({ darkMode, setDarkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
-  
+  const menuRef = useRef(null); // Ref for the mobile dropdown menu
 
+  // Toggle dark mode body class
   useEffect(() => {
     if (darkMode) {
       document.body.classList.add("dark-mode");
@@ -13,6 +14,20 @@ const Navbar = ({ darkMode, setDarkMode }) => {
       document.body.classList.remove("dark-mode");
     }
   }, [darkMode]);
+
+  // Close mobile menu on outside click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isOpen && menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -58,7 +73,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                 darkMode ? "bg-[#fff7f7] text-black" : "bg-black text-white"
               }`}
             >
-              {darkMode ? "☀️ Light" :"🌙 Dark"}
+              {darkMode ? "☀️ Light" : "🌙 Dark"}
             </button>
           </div>
 
@@ -76,7 +91,10 @@ const Navbar = ({ darkMode, setDarkMode }) => {
 
       {/* Mobile Nav Dropdown */}
       {isOpen && (
-        <div className={`md:hidden shadow-md px-4 pb-4 space-y-2 ${darkMode ? "bg-[#0d0d0d]" : "bg-white"}`}>
+        <div
+          ref={menuRef}
+          className={`md:hidden shadow-md px-4 pb-4 space-y-2 ${darkMode ? "bg-[#0d0d0d]" : "bg-white"}`}
+        >
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -97,7 +115,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
               darkMode ? "bg-[#fff7f7] text-black" : "bg-black text-white"
             }`}
           >
-            {darkMode ? "☀️ Light Mode" :"🌙 Dark Mode" }
+            {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
           </button>
         </div>
       )}
