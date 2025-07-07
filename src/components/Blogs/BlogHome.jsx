@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import spinner from "../assets/spinner.gif";
+// import spinner from "../assets/spinner.gif";
 
 const BlogHome = ({ darkMode }) => {
   const [blogs, setBlogs] = useState([]);
@@ -20,8 +20,8 @@ const BlogHome = ({ darkMode }) => {
       <div
         className={` min-h-screen flex items-center justify-center`}
       >
-        <img src={spinner} alt="Loading..." className="w-16 h-16" />
-{/*         <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div> */}
+{/*         <img src={spinner} alt="Loading..." className="w-16 h-16" /> */}
+        <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
