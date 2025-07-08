@@ -35,7 +35,7 @@ const BlogPost = ({ darkMode }) => {
       {blog.imageURL && (
         <div className="relative w-full h-72 sm:h-96 md:h-[28rem] overflow-hidden">
           <div
-            className="absolute inset-0 bg-cover bg-bottom md:bg-bottom lg:bg-center"
+            className="absolute inset-0 bg-cover bg-bottom lg:bg-center"
             style={{
               backgroundImage: `url(${blog.imageURL})`,
               WebkitMaskImage:
@@ -49,8 +49,9 @@ const BlogPost = ({ darkMode }) => {
 
           {/* Text Overlay */}
           <div className="relative z-20 h-full flex flex-col justify-end px-4 sm:px-10 pb-6 text-white">
+
             <p
-              className={`text-xs sm:text-sm ${
+              className={`text-xs sm:text-sm  ${
                 darkMode ? "text-gray-300" : "text-gray-900"
               }`}
             >
@@ -85,7 +86,7 @@ const BlogPost = ({ darkMode }) => {
       )}
 
       {/* === Blog Markdown Content === */}
-      <div className="min-h-screen mt-4  mx-auto sm:px-3 md:px-10 py-8 sm:py-12 md:py-10">
+      <div className="min-h-screen mt-4  mx-auto sm:px-3 md:px-10 ">
         <div
           className={`prose prose-sm sm:prose-base md:prose-lg max-w-none leading-relaxed ${
             darkMode ? "text-gray-300" : "text-gray-900"
