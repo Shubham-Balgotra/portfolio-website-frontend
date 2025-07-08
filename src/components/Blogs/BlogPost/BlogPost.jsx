@@ -58,7 +58,7 @@ const BlogPost = ({ darkMode }) => {
         {blog.tags.map((tag, i) => (
           <span
             key={i}
-            className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium"
+            className={`${darkMode?" bg-gray-900 text-gray-300":" bg-blue-50 text-blue-700"}bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium`}
           >
             #{tag}
           </span>
