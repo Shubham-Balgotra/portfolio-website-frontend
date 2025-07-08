@@ -35,7 +35,7 @@ const BlogPost = ({ darkMode }) => {
       {blog.imageURL && (
         <div className="relative w-full h-72 sm:h-96 md:h-[28rem] overflow-hidden">
           <div
-            className="absolute inset-0 bg-cover bg-center"
+            className="absolute inset-0 bg-cover bg-bottom md:bg-bottom lg:bg-center"
             style={{
               backgroundImage: `url(${blog.imageURL})`,
               WebkitMaskImage:
