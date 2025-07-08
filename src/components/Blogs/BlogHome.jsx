@@ -179,7 +179,7 @@ const BlogHome = ({ darkMode }) => {
               <img
                 src={post.imageURL}
                 alt={post.title}
-                className="w-full h-48 object-cover rounded-t-xl mb-2 "
+                className="w-full h-48 object-contain rounded-t-xl mb-2 "
               />
             )}
 
