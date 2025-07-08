@@ -48,7 +48,7 @@ const BlogPost = ({ darkMode }) => {
           {/* Optional dark overlay for better text contrast */}
 
           {/* Text Overlay */}
-          <div className="relative z-20 h-full flex flex-col justify-end px-4 sm:px-10 pb-6 text-white">
+          <div className="relative z-20 h-full flex flex-col justify-end px-4 sm:px-10 pb-6 pt-12 md:pt-2 lg:pt-0 text-white">
 
             <p
               className={`text-xs sm:text-sm  ${
@@ -67,7 +67,11 @@ const BlogPost = ({ darkMode }) => {
           }`}>
               {blog.title}
             </h1>
-            <div className="flex flex-wrap gap-2 mt-2">
+           
+          </div>
+        </div>
+      )}
+       <div className="flex flex-wrap gap-2 mt-2">
               {blog.tags.map((tag, i) => (
                 <span
                   key={i}
@@ -81,9 +85,6 @@ const BlogPost = ({ darkMode }) => {
                 </span>
               ))}
             </div>
-          </div>
-        </div>
-      )}
 
       {/* === Blog Markdown Content === */}
       <div className="min-h-screen mt-4  mx-auto sm:px-3 md:px-10 ">
