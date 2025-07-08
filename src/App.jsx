@@ -27,7 +27,7 @@ function App() {
           ? "bg-gradient-to-r from-[#000000] via-[#121b27] to-[#010d1b] text-gray-400"
           : "bg-gradient-to-r from-[#ffffff] via-[#96b3d4] to-[#6797da] text-gray-700"
       }`}> */}
-        <main className={`min-h-screen  max-w-screen mx-auto px-10 py-4 ${darkMode
+        <main className={`min-h-screen  max-w-screen mx-auto px-5 py-4 ${darkMode
           ? "bg-gradient-to-r from-[#000000] via-[#121b27] to-[#010d1b] text-gray-400"
           : "bg-gradient-to-r from-[#ffffff] via-[#96b3d4] to-[#6797da] text-gray-700"
       }`}>
