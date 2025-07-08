@@ -92,7 +92,7 @@ const BlogPost = ({ darkMode }) => {
           }`}
           style={{
             fontFamily: "'Merriweather', serif",
-            textAlign: "justify",
+            // textAlign: "justify",
           }}
         >
           <ReactMarkdown>{blog.content}</ReactMarkdown>
