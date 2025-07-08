@@ -70,7 +70,7 @@ const BlogHome = ({ darkMode }) => {
               <img
                 src={post.imageURL}
                 alt={post.title}
-                className="w-full h-48 object-contain rounded-xl mb-4 transition-transform duration-300 hover:scale-105"
+                className="w-full h-48 object-cover rounded-xl mb-4 transition-transform duration-300 hover:scale-105"
               />
             )}
 
