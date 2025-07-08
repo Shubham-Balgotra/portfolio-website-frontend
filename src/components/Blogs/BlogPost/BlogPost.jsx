@@ -54,7 +54,7 @@ const BlogPost = ({ darkMode }) => {
                 darkMode ? "text-gray-300" : "text-gray-900"
               }`}
             >
-              🗓️{" "}
+              🗓️{" "} Written on: {" "}
               {new Date(blog.date).toLocaleDateString(undefined, {
                 year: "numeric",
                 month: "long",
