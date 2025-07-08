@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+const backendBaseURL = import.meta.env.VITE_BACKEND_BASE_URL;
 // import spinner from "../assets/spinner.gif";
+
 
 const BlogHome = ({ darkMode }) => {
   const [blogs, setBlogs] = useState([]);
@@ -9,7 +11,8 @@ const BlogHome = ({ darkMode }) => {
 
   useEffect(() => {
     axios
-      .get("https://portfolio-website-backend-production-f66e.up.railway.app/api/blogs")
+      .get(`${backendBaseURL}/api/blogs`)
+      // .get("https://portfolio-website-backend-production-f66e.up.railway.app/api/blogs")
       .then((res) => setBlogs(res.data))
       .catch((err) => console.error("Error fetching blogs:", err))
       .finally(() => setLoading(false));
