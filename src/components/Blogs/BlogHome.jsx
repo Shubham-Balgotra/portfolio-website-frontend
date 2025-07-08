@@ -55,14 +55,31 @@ const BlogHome = ({ darkMode }) => {
                 : "bg-white text-gray-800 hover:text-blue-600"
             } rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border hover:border-blue-400`}
           >
-            <div className="mb-4">
+{/*             <div className="mb-4">
               <p className="text-gray-400 text-xs tracking-wide uppercase">
                 {new Date(post.date).toLocaleDateString()}
               </p>
               <h3 className="text-xl font-semibold transition-colors duration-200">
                 {post.title}
               </h3>
+            </div> */}
+            {post.imageURL && (
+              <img
+                src={post.imageURL}
+                alt={post.title}
+                className="w-full h-48 object-cover rounded-xl mb-4 transition-transform duration-300 hover:scale-105"
+              />
+            )}
+
+            <div className="mb-4">
+            <p className="text-gray-400 text-xs tracking-wide uppercase">
+           {new Date(post.date).toLocaleDateString()}
+            </p>
+            <h3 className="text-xl font-semibold transition-colors duration-200">
+            {post.title}
+            </h3>
             </div>
+
 
             <p
               className={`${
