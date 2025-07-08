@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
+const backendBaseURL = import.meta.env.VITE_BACKEND_BASE_URL;
 
 const BlogPost = ({ darkMode }) => {
   const { slug } = useParams();
@@ -11,7 +12,8 @@ const BlogPost = ({ darkMode }) => {
     if (!slug) return;
 
     axios
-      .get(`https://portfolio-website-backend-production-f66e.up.railway.app/api/blogs/slug/${slug}`)
+      .get(`${backendBaseURL}/api/blogs/slug/${slug}`)
+      // .get(`https://portfolio-website-backend-production-f66e.up.railway.app/api/blogs/slug/${slug}`)
       .then((res) => setBlog(res.data))
       .catch((err) => {
         console.error("Error fetching blog:", err);
