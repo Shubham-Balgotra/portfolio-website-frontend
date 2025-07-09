@@ -56,7 +56,7 @@ export default function Technologies({ darkMode }) {
               />
             </div>
 
-            <p className="text-[10px] font-medium">{tech.name}</p>
+            <p className="text-[12px] font-medium">{tech.name}</p>
           </div>
         ))}
       </div>
