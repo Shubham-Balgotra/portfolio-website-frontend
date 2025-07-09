@@ -45,8 +45,8 @@ const About = ({darkMode}) => {
           projects, learn from talented teams, and grow into a more advanced
           developer — while delivering great user experiences along the way.
         </p>
-        <br />
-        <SocialMediaLinks darkMode={darkMode} />
+{/*         <br /> */}
+{/*         <SocialMediaLinks darkMode={darkMode} /> */}
       {/* </div> */}
     </section>
   );
