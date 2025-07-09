@@ -13,7 +13,7 @@ export default function WhatICanOffer({ darkMode }) {
       {darkMode && <div className="absolute inset-0 bg-black/70 z-0" />}
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-w-[90vh]">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-[90vh]">
        <div className={`w-full border-b ${darkMode?"border-gray-300":"border-gray-900"}   mb-6 pb-2`}>
           <h1 className={`text-2xl md:text-3xl lg:text-4xl font-bold ${darkMode?"text-gray-300":"text-gray-100"}  text-center mb-2`}>
             What I Can Offer
