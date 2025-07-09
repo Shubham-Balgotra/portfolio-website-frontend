@@ -190,12 +190,12 @@ const BlogPost = ({ darkMode }) => {
       {/* === Blog Markdown Content === */}
       <div className="min-h-screen mt-4 mx-auto sm:px-3 md:px-10">
         <div
-          className={`prose prose-sm sm:prose-base md:prose-lg max-w-none leading-relaxed ${
+          className={`prose prose-sm sm:prose-base md:prose-lg max-w-none leading-relaxed text-[11px] md:text-[14px] lg:text-[20px] ${
             darkMode ? "text-gray-300" : "text-gray-900"
           }`}
           style={{
             fontFamily: "'Merriweather', serif",
-            fontSize: "11px",
+            
           }}
         >
           <ReactMarkdown
