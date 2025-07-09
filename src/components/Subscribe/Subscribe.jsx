@@ -31,7 +31,7 @@ const Subscribe = ({ darkMode }) => {
       } px-4 py-10 md:py-14 lg:py-20 sm:py-14`}
     >
       <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-2xl font-bold mb-4">📬 Get new blog posts in your inbox — subscribe now</h2>
+        <h2 className="text-2xl font-bold mb-4">📬 Get new blog post updates in your inbox — subscribe now.</h2>
 
         {submitted ? (
           <p className="text-green-500 font-medium">You're subscribed! Thank you.</p>
