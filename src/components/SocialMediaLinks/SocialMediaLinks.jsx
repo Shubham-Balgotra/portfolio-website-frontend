@@ -2,7 +2,7 @@ import { FaGithub, FaLinkedin,FaTwitter,FaPinterest,FaInstagram,FaMedium } from 
 
 const SocialMediaLinks = ({ className = "" ,darkMode}) => {
   return (
-    <div className={`flex items-center space-x-4 ${darkMode?"text-gray-400":"text-gray-700"} text-base mt-4 ${className}`}>
+    <div className={`flex items-center space-x-4 ${darkMode?"text-gray-400":"text-gray-700"} text-base  ${className}`}>
       
       <a
         href="https://github.com/Shubham-Balgotra"
