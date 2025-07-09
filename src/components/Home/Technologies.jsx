@@ -38,7 +38,7 @@ export default function Technologies({ darkMode }) {
         {technologies.map((tech, index) => (
           <div
             key={index}
-            className={`flex flex-col items-center gap-2 p-4 rounded-lg shadow-md transition hover:scale-105 ${
+            className={`h-29 w-31 flex flex-col items-center gap-2 p-4 rounded-lg shadow-md transition hover:scale-105 ${
               darkMode
                 ? "bg-black text-gray-300 shadow-gray-800"
                 : "bg-white text-gray-800 shadow-gray-200"
