@@ -30,38 +30,43 @@ const technologies = [
 export default function Technologies({ darkMode }) {
   return (
     <section
-      className={`w-full px-4 py-10   mx-auto ${ //md:px-12 lg:px-24 xl:px-48
-        darkMode ? "bg-gray-1000 text-gray-300" : "bg-gray-100 text-gray-800"
-      }`}>
-      <h2 className={`text-2xl md:text-3xl font-bold ${darkMode?"text-gray-300":"text-gray-800"}  mb-6 border-b pb-2`}>
-        Technologies & Tools
-      </h2>
+      className={`w-full px-4 py-10 ${
+        darkMode ? "bg-black text-gray-300" : "bg-gray-100 text-gray-800"
+      }`}
+    >
+      <div className="max-w-6xl mx-auto flex flex-col items-center">
+        <div className={`w-full border-b ${darkMode?"border-gray-300":"border-gray-900"}   mb-6 pb-2`}>
+          <h1 className={`text-2xl md:text-3xl lg:text-4xl font-bold ${darkMode?"text-gray-300":"text-gray-900"}  text-center mb-2`}>
+            Technologies & Tools
+          </h1>
+        </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 place-items-center ">
-        {technologies.map((tech, index) => (
-          <div
-            key={index}
-            className={`h-29 w-31 flex flex-col items-center gap-2 p-4 rounded-lg shadow-md transition hover:scale-105 ${
-              darkMode
-                ? "bg-black text-gray-300 shadow-gray-800"
-                : "bg-white text-gray-800 shadow-gray-200"
-            }`}
-          >
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 place-items-center w-full">
+          {technologies.map((tech, index) => (
             <div
-              className={`w-16 h-16 p-2 rounded-md flex items-center justify-center shadow-md ${
-                darkMode ? "bg-gray-300" : "bg-gray-100"
+              key={index}
+              className={`w-full max-w-[140px] h-auto flex flex-col items-center gap-3 p-4 rounded-lg shadow-md transition hover:scale-105 ${
+                darkMode
+                  ? "bg-gray-950 text-gray-300 shadow-gray-800"
+                  : "bg-white text-gray-800 shadow-gray-200"
               }`}
             >
-              <img
-                src={tech.logo}
-                alt={tech.name}
-                className="w-12 h-12 object-contain"
-              />
-            </div>
+              <div
+                className={`w-16 h-16 p-2 rounded-md flex items-center justify-center shadow ${
+                  darkMode ? "bg-gray-300" : "bg-gray-100"
+                }`}
+              >
+                <img
+                  src={tech.logo}
+                  alt={tech.name}
+                  className="w-12 h-12 object-contain"
+                />
+              </div>
 
-            <p className="text-sm font-medium">{tech.name}</p>
-          </div>
-        ))}
+              <p className="text-sm text-center font-medium">{tech.name}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
