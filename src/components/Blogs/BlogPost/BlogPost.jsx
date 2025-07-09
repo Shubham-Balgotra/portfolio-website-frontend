@@ -195,6 +195,7 @@ const BlogPost = ({ darkMode }) => {
           }`}
           style={{
             fontFamily: "'Merriweather', serif",
+            fontSize: "11px",
           }}
         >
           <ReactMarkdown
