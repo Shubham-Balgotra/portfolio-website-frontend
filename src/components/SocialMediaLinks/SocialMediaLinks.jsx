@@ -78,7 +78,7 @@ const SocialMediaLinks = ({ className = "" ,darkMode}) => {
           }`}
           
         >
-          <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 512 512">
+          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 512 512">
             <path d="M502.3 190.8c6.2 4.9 9.7 12.4 9.7 20.4v212c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V211.2c0-8 3.6-15.5 9.7-20.4L241 67.4c11.3-9 27.7-9 39 0l222.3 123.4zM256 295.1L46.2 176.7 26.8 193.5 256 336l229.2-142.5-19.4-16.8L256 295.1z" />
           </svg>
         </a>
