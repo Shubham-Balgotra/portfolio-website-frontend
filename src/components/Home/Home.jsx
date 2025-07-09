@@ -8,6 +8,7 @@ import programmerGif from "../../assets/programmer.gif";
 import ClientProcess from "./ClientProcess";
 import Technologies from "./Technologies";
 import SocialMediaLinks from "../SocialMediaLinks/SocialMediaLinks";
+import Subscribe from "../Subscribe/Subscribe";
 
 export default function Home({ darkMode }) {
   return (
@@ -60,13 +61,14 @@ export default function Home({ darkMode }) {
               loop={true}
             />
           </div>
-
+              
           <Link
             to="/contact"
             className="inline-block mt-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition"
           >
             Let’s Work Together
           </Link>
+          
         </div>
 
         {/* RIGHT: IMAGE */}
@@ -96,17 +98,19 @@ export default function Home({ darkMode }) {
       {/* === TECHNOLOGIES === */}
       <Technologies darkMode={darkMode} />
 
+      <Subscribe darkMode={darkMode}/>
+
       {/* === CALL TO ACTION === */}
       <CallToAction darkMode={darkMode} />
 
       {/* === SOCIAL MEDIA === */}
       <section
-        className={`w-full text-center py-10 px-4 sm:px-6 lg:px-20 xl:px-32 ${
+        className={`w-full text-center py-2 px-4 sm:px-6 lg:px-20 xl:px-32 ${
           darkMode ? "bg-black text-white" : "bg-gray-50 text-gray-800"
         }`}
       >
-        <p className="mb-2 font-semibold text-lg">Social Media Links</p>
-        <div className="flex justify-center gap-6 flex-wrap z-10 mb-2">
+        <p className=" font-semibold text-lg">Social Media Links</p>
+        <div className="flex justify-center gap-6 flex-wrap z-10 ">
           <SocialMediaLinks darkMode={darkMode} />
         </div>
       </section>
