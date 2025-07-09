@@ -1,80 +1,115 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import Typewriter from "react-typewriter-effect";
 import WhatICanOffer from "./WhatICanOffer";
 import ServicesSection from "./ServicesSection";
 import CallToAction from "./CallToAction";
 import programmerGif from "../../assets/programmer.gif";
-import { Link } from "react-router-dom";
 import ClientProcess from "./ClientProcess";
 import Technologies from "./Technologies";
 import SocialMediaLinks from "../SocialMediaLinks/SocialMediaLinks";
 
 export default function Home({ darkMode }) {
   return (
-    <section
-      className={`mt-16 w-full min-h-[90vh] flex flex-col items-center justify-center text-center  relative overflow-hidden ${
-        darkMode
-          ? "bg-black text-white"
-          : "bg-gradient-to-br from-gray-50 to-blue-100 text-gray-800"
-      }`}
-    >
-      {/* Background Animation */}
-      {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-200/30 via-transparent to-blue-200/30 animate-pulse"></div> */}
+    <>
+      {/* === HERO SECTION === */}
+      <section
+        className={`relative w-full min-h-screen flex flex-col-reverse md:flex-row items-center justify-between 
+        px-4 sm:px-6 lg:px-20 xl:px-32 
+        pt-28 sm:pt-32 lg:pt-24 pb-10 sm:pb-16 gap-10 overflow-hidden
+        ${
+          darkMode
+            ? "bg-gradient-to-br from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f] text-white"
+            : "bg-gradient-to-br from-[#e0f2fe] via-[#cbd5e1] to-[#93c5fd] text-gray-800"
+        }`}
+      >
+        {/* Decorative Background Blobs */}
+        {!darkMode && (
+          <>
+            <div className="absolute top-[-100px] left-[-100px] w-[500px] h-[500px] bg-gradient-to-br from-blue-300 to-indigo-200 rounded-full blur-3xl opacity-30 z-0" />
+            <div className="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-gradient-to-br from-pink-200 to-purple-200 rounded-full blur-2xl opacity-20 z-0" />
+          </>
+        )}
 
-      {/* Profile Image */}
-      <div className="relative mt-4 mb-8 inline-block group">
-        <div className="p-[8px] rounded-full bg-gradient-to-r from-[#166472] via-[#1f538f] to-[#367baf] shadow-xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
-          <img
-            src={programmerGif}
-            alt="Shubham Balgotra"
-            className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-white object-contain ring-4 ring-white transition-transform duration-500"
-          />
+        {/* LEFT: TEXT */}
+        <div className="flex-1 text-center md:text-left max-w-xl z-10">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold mb-4 leading-tight">
+            Hi, I’m{" "}
+            <span className="bg-gradient-to-r from-[#166472] via-[#1f538f] to-[#367baf] bg-clip-text text-transparent">
+              Shubham Balgotra
+            </span>
+          </h1>
+
+          <div className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 font-medium max-w-md mx-auto md:mx-0">
+            <Typewriter
+              textStyle={{
+                color: darkMode ? "#FFFFFF" : "#1F2937",
+                fontWeight: 500,
+              }}
+              startDelay={100}
+              cursorColor={darkMode ? "#FFF" : "#2563EB"}
+              multiText={[
+                "MERN Stack Developer",
+                "Technical Support Executive",
+                "Building Responsive Web Apps",
+                "Solving Real-World Tech Problems",
+              ]}
+              multiTextDelay={2000}
+              typeSpeed={100}
+              deleteSpeed={50}
+              loop={true}
+            />
+          </div>
+
+          <Link
+            to="/contact"
+            className="inline-block mt-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition"
+          >
+            Let’s Work Together
+          </Link>
         </div>
 
-        {/* Optional glow behind the image */}
-        <div className="absolute -inset-1 rounded-full blur-xl opacity-20 bg-gradient-to-r from-[#166472] via-[#1f538f] to-[#367baf] group-hover:opacity-40 transition duration-500 z-[-1]"></div>
-      </div>
+        {/* RIGHT: IMAGE */}
+        <div className="flex-1 flex justify-center z-10">
+          <div className="relative group">
+            <div className="p-[8px] rounded-full bg-gradient-to-r from-[#166472] via-[#1f538f] to-[#367baf] shadow-xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
+              <img
+                src={programmerGif}
+                alt="Shubham Balgotra"
+                className="w-32 h-32 sm:w-36 sm:h-36 md:w-44 md:h-44 xl:w-52 xl:h-52 rounded-full bg-white object-contain ring-4 ring-white transition-transform duration-500"
+              />
+            </div>
+            <div className="absolute -inset-1 rounded-full blur-xl opacity-20 bg-gradient-to-r from-[#166472] via-[#1f538f] to-[#367baf] group-hover:opacity-40 transition duration-500 z-[-1]"></div>
+          </div>
+        </div>
+      </section>
 
-      {/* Main Heading with Typewriter Effect */}
-      <h1 className={`text-4xl md:text-6xl font-extrabold mb-4 dark-section`}>
-        Hi, I’m{" "}
-        <span className="bg-gradient-to-r from-[#166472] via-[#1f538f] to-[#367baf] bg-clip-text text-transparent">
-          Shubham Balgotra
-        </span>
-      </h1>
-
-      <div className="text-lg md:text-2xl text-gray-600 max-w-2xl mb-6 font-medium">
-        <Typewriter
-          textStyle={{
-            color: darkMode ? "#FFFFFF" : "#1F2937",
-            fontWeight: 500,
-          }}
-          startDelay={100}
-          cursorColor={darkMode ? "#FFF" : "#2563EB"}
-          multiText={[
-            "MERN Stack Developer",
-            "Technical Support Executive",
-            "Building Responsive Web Apps",
-            "Solving Real-World Tech Problems",
-          ]}
-          multiTextDelay={2000}
-          typeSpeed={100}
-          deleteSpeed={50}
-          loop={true}
-        />
-      </div>
-
+      {/* === WHAT I CAN OFFER === */}
       <WhatICanOffer darkMode={darkMode} />
+
+      {/* === SERVICES SECTION === */}
       <ServicesSection darkMode={darkMode} />
+
+      {/* === CLIENT PROCESS === */}
       <ClientProcess darkMode={darkMode} />
+
+      {/* === TECHNOLOGIES === */}
       <Technologies darkMode={darkMode} />
+
+      {/* === CALL TO ACTION === */}
       <CallToAction darkMode={darkMode} />
 
-      <p className={`m-2 ${darkMode ? "dark-text" : ""}`}>Social Media Links</p>
-      <div className=" flex justify-center gap-6 z-10 mb-2">
-       <SocialMediaLinks darkMode={darkMode} />
-      </div>
-    </section>
+      {/* === SOCIAL MEDIA === */}
+      <section
+        className={`w-full text-center py-10 px-4 sm:px-6 lg:px-20 xl:px-32 ${
+          darkMode ? "bg-black text-white" : "bg-gray-50 text-gray-800"
+        }`}
+      >
+        <p className="mb-2 font-semibold text-lg">Social Media Links</p>
+        <div className="flex justify-center gap-6 flex-wrap z-10 mb-2">
+          <SocialMediaLinks darkMode={darkMode} />
+        </div>
+      </section>
+    </>
   );
 }
