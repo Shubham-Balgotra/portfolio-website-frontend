@@ -30,17 +30,17 @@ const services = [
 export default function ServicesSection({darkMode}) {
   return (
     <section
-      className="w-full px-4 py-12 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto bg-gray-50 bg-cover bg-center bg-no-repeat"
+      className="w-full min-h-screen px-4 py-10 lg:py-14 mx-auto bg-gray-50 bg-cover bg-center bg-no-repeat" // md:px-12 lg:px-24 xl:px-48
       style={{ backgroundImage: `url(${serviceBg})` }}
     >
       <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 border-b pb-2">
         Services
       </h2>
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:px-4">
         {services.map((service, index) => (
           <div
             key={index}
-            className={` p-5 rounded-lg shadow hover:shadow-md transition ${darkMode?"bg-black text-gray-300 " :"bg-white text-gray-700"}`}>
+            className={` p-5 rounded-lg shadow hover:shadow-md transition ${darkMode?"bg-gray-950 text-gray-300 " :"bg-white text-gray-700"}`}>
           
             <h3 className="text-lg font-semibold text-blue-600 mb-2">
               {service.title}
