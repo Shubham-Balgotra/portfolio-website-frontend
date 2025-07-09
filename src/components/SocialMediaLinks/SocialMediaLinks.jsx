@@ -52,7 +52,7 @@ const SocialMediaLinks = ({ className = "" ,darkMode}) => {
         href="https://in.pinterest.com/shubhambalgotra/"
         target="_blank"
         rel="noopener noreferrer"
-        className={`hover:text-red ${darkMode?"bg-gray-900 text-xl":"bg-white text-xl"}`}
+        className={`${darkMode?"hover:text-gray-600 text-xl":"hover:text-red-500 text-xl"}`}
         aria-label="Pinterest"
         title="Pinterest"
       >
@@ -62,7 +62,7 @@ const SocialMediaLinks = ({ className = "" ,darkMode}) => {
         href="https://www.instagram.com/shubhambalgotra/"
         target="_blank"
         rel="noopener noreferrer"
-        className={`hover:text-pink ${darkMode?"bg-gray-900 text-xl":"bg-white text-xl"}`}
+        className={`${darkMode?"hover:text-gray-600 text-xl":"hover:text-pink-500 text-xl"}`}
         aria-label="Instagram"
         title="Instagram"
       >
