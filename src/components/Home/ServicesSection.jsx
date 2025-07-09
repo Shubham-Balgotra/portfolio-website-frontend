@@ -30,10 +30,16 @@ const services = [
 export default function ServicesSection({darkMode}) {
   return (
     <section
-      className="w-full min-h-screen px-4 py-10 lg:py-14 mx-auto bg-gray-50 bg-cover bg-center bg-no-repeat" // md:px-12 lg:px-24 xl:px-48
+      className="relative w-full min-h-screen px-4 py-10 lg:py-14 mx-auto bg-gray-50 bg-cover bg-center bg-no-repeat" // md:px-12 lg:px-24 xl:px-48
       style={{ backgroundImage: `url(${serviceBg})` }}
     >
-      <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 border-b pb-2">
+          {/* Black overlay for darkMode */}
+      {darkMode && (
+        <div className="absolute inset-0 bg-black/70 z-0" />
+      )}
+
+     <div className="relative z-10">
+       <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 border-b pb-2">
         Services
       </h2>
       <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:px-4">
@@ -51,6 +57,7 @@ export default function ServicesSection({darkMode}) {
           </div>
         ))}
       </div>
+     </div>
     </section>
   );
 }
