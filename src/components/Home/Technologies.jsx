@@ -29,12 +29,15 @@ const technologies = [
 
 export default function Technologies({ darkMode }) {
   return (
-    <section className="w-full px-4 py-12 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto">
-      <h2 className="text-2xl md:text-3xl font-bold mb-8 border-b pb-2 text-center">
+    <section
+      className={`w-full px-4 py-10   mx-auto ${ //md:px-12 lg:px-24 xl:px-48
+        darkMode ? "bg-gray-1000 text-gray-300" : "bg-gray-100 text-gray-800"
+      }`}>
+      <h2 className={`text-2xl md:text-3xl font-bold ${darkMode?"text-gray-300":"text-gray-800"}  mb-6 border-b pb-2`}>
         Technologies & Tools
       </h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 place-items-center">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 place-items-center ">
         {technologies.map((tech, index) => (
           <div
             key={index}
@@ -56,7 +59,7 @@ export default function Technologies({ darkMode }) {
               />
             </div>
 
-            <p className="text-[12px] font-medium">{tech.name}</p>
+            <p className="text-sm font-medium">{tech.name}</p>
           </div>
         ))}
       </div>
