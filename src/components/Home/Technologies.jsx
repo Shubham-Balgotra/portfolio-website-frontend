@@ -1,10 +1,16 @@
 import React from "react";
-import reactLogo from "../../assets/tech/react.svg";
-import nodeLogo from "../../assets/tech/nodejs.svg";
-import mongoLogo from "../../assets/tech/mongodb.svg";
-import firebaseLogo from "../../assets/tech/firebase.svg";
-import githubLogo from "../../assets/tech/github.svg";
-import vercelLogo from "../../assets/tech/vercel.svg";
+import reactLogo from "../../assets/tech/react.png";
+import nodeLogo from "../../assets/tech/nodejs.png";
+import mongoLogo from "../../assets/tech/mongodb.png";
+import firebaseLogo from "../../assets/tech/firebase.png";
+import githubLogo from "../../assets/tech/github.png";
+import vercelLogo from "../../assets/tech/vercel.png";
+import renderLogo from "../../assets/tech/render.png";
+import railwayLogo from "../../assets/tech/railway.png";
+import gitLogo from "../../assets/tech/git.png";
+import postmanLogo from "../../assets/tech/postman.png";
+import tailwindcssLogo from "../../assets/tech/tailwindcss.png";
+import javascriptLogo from "../../assets/tech/javascript.png";
 
 const technologies = [
   { name: "React", logo: reactLogo },
@@ -13,6 +19,12 @@ const technologies = [
   { name: "Firebase", logo: firebaseLogo },
   { name: "GitHub", logo: githubLogo },
   { name: "Vercel", logo: vercelLogo },
+  { name: "Render", logo: renderLogo },
+  { name: "Railway", logo: railwayLogo },
+  { name: "Git", logo: gitLogo },
+  { name: "PostMan", logo: postmanLogo },
+  { name: "Tailwind CSS", logo: tailwindcssLogo },
+  { name: "HTML, JS, CSS", logo: javascriptLogo },
 ];
 
 export default function Technologies({ darkMode }) {
@@ -32,7 +44,18 @@ export default function Technologies({ darkMode }) {
                 : "bg-white text-gray-800 shadow-gray-200"
             }`}
           >
-            <img src={tech.logo} alt={tech.name} className="w-12 h-12 object-contain" />
+            <div
+              className={`w-16 h-16 p-2 rounded-md flex items-center justify-center shadow-md ${
+                darkMode ? "bg-gray-300" : "bg-gray-100"
+              }`}
+            >
+              <img
+                src={tech.logo}
+                alt={tech.name}
+                className="w-12 h-12 object-contain"
+              />
+            </div>
+
             <p className="text-sm font-medium">{tech.name}</p>
           </div>
         ))}
