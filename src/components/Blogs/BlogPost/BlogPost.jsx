@@ -107,6 +107,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
 import remarkBreaks from "remark-breaks";
+import remarkGfm from "remark-gfm";
 
 const backendBaseURL = import.meta.env.VITE_BACKEND_BASE_URL;
 
@@ -188,36 +189,37 @@ const BlogPost = ({ darkMode }) => {
       </div>
 
       {/* === Blog Markdown Content === */}
-      <div className="min-h-screen mt-4 mx-auto sm:px-3 md:px-10">
-        <div
-          className={`prose prose-sm sm:prose-base md:prose-lg max-w-none leading-relaxed text-[14px] md:text-[18px] lg:text-[22px] ${
-            darkMode ? "text-gray-300" : "text-gray-900"
-          }`}
-          style={{
-            fontFamily: "'Merriweather', serif",
-            
-          }}
-        >
+                 <div className="min-h-screen mt-4 mx-auto sm:px-3 md:px-10">
+                  <div
+             className={`prose sm:prose-base md:prose-lg lg:prose-xl max-w-none leading-relaxed ${
+               darkMode ? "prose-invert text-gray-300" : "text-gray-900"
+             }`}
+             style={{
+               fontFamily: "'Merriweather', serif",
+             }}
+           >
+
           <ReactMarkdown
-            remarkPlugins={[remarkBreaks]}
-            components={{
-              code({ node, inline, className, children, ...props }) {
-                return inline ? (
-                  <code className={className} {...props}>
-                    {children}
-                  </code>
-                ) : (
-                  <pre className="whitespace-pre-wrap bg-gray-100 dark:bg-gray-800 p-4 rounded">
-                    <code className={className} {...props}>
-                      {children}
-                    </code>
-                  </pre>
-                );
-              },
-            }}
-          >
-            {blog.content}
-          </ReactMarkdown>
+             remarkPlugins={[remarkBreaks, remarkGfm]}
+             components={{
+               code({ node, inline, className, children, ...props }) {
+                 return inline ? (
+                   <code className={className} {...props}>
+                     {children}
+                   </code>
+                 ) : (
+                   <pre className="whitespace-pre-wrap bg-gray-100 dark:bg-gray-800 p-4 rounded">
+                     <code className={className} {...props}>
+                       {children}
+                     </code>
+                   </pre>
+                 );
+               },
+             }}
+           >
+             {blog.content}
+           </ReactMarkdown>
+
         </div>
       </div>
     </>
