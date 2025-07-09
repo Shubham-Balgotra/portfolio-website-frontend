@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin,FaTwitter,FaPinterest,FaInstagram,FaMedium } from "react-icons/fa";
 
 const SocialMediaLinks = ({ className = "" ,darkMode}) => {
   return (
@@ -17,9 +17,19 @@ const SocialMediaLinks = ({ className = "" ,darkMode}) => {
       >
         <FaGithub />
       </a>
-      <p>or</p>
+{/*       <p>or</p> */}
       <a
-        href="https://www.linkedin.com/in/shubham-balgotra-97b82518a"
+        href="https://x.com/BalgotraShubham/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-blue-600 text-xl"
+        aria-label="Twitter"
+        title="Twitter"
+      >
+        <FaTwitter />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/shubham-balgotra"
         target="_blank"
         rel="noopener noreferrer"
         className="hover:text-blue-600 text-xl"
@@ -28,6 +38,37 @@ const SocialMediaLinks = ({ className = "" ,darkMode}) => {
       >
         <FaLinkedin />
       </a>
+      <a
+        href="https://medium.com/@shubhambalgotra1/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-blue-600 text-xl"
+        aria-label="Medium"
+        title="Medium"
+      >
+        <FaMedium />
+      </a>
+      <a
+        href="https://in.pinterest.com/shubhambalgotra/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-blue-600 text-xl"
+        aria-label="Pinterest"
+        title="Pinterest"
+      >
+        <FaPinterest />
+      </a>
+      <a
+        href="https://www.instagram.com/shubhambalgotra/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-blue-600 text-xl"
+        aria-label="Instagram"
+        title="Instagram"
+      >
+        <FaInstagram />
+      </a>
+      
     </div>
   );
 };
