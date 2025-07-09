@@ -4,23 +4,22 @@ import whatICanOfferBg from '../../assets/WhatICanOfferBG.jpg';
 export default function WhatICanOffer({ darkMode }) {
   return (
     <section
-      className={`relative w-full min-h-screen px-4 py-10 lg:py-14 mx-auto bg-cover bg-center bg-no-repeat ${
+      className={`relative w-full px-4 py-10 lg:py-14 mx-auto bg-cover bg-center bg-no-repeat ${
         darkMode ? "text-gray-300" : "bg-gray-50 text-gray-800"
       }`}
       style={{ backgroundImage: `url(${whatICanOfferBg})` }}
     >
       {/* Black overlay for darkMode */}
-      {darkMode && (
-        <div className="absolute inset-0 bg-black/70 z-0" />
-      )}
+      {darkMode && <div className="absolute inset-0 bg-black/70 z-0" />}
 
       {/* Content */}
-      <div className="relative z-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 border-b pb-2">
-          What I Can Offer
-        </h2>
-
-        <ul className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:px-4">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen">
+       <div className={`w-full border-b ${darkMode?"border-gray-300":"border-gray-900"}   mb-6 pb-2`}>
+          <h1 className={`text-2xl md:text-3xl lg:text-4xl font-bold ${darkMode?"text-gray-300":"text-gray-100"}  text-center mb-2`}>
+            What I Can Offer
+          </h1>
+        </div>
+        <ul className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:px-4 max-w-6xl w-full justify-items-center">
           {[
             {
               title: "Full-Stack Web Development",
@@ -49,7 +48,7 @@ export default function WhatICanOffer({ darkMode }) {
           ].map((item, index) => (
             <li
               key={index}
-              className={`p-5 rounded-lg shadow hover:shadow-md transition backdrop-blur-sm ${
+              className={`w-full max-w-xs p-5 rounded-lg shadow hover:shadow-md transition backdrop-blur-sm ${
                 darkMode
                   ? "bg-gray-950/80 text-gray-300"
                   : "bg-white text-gray-700"
