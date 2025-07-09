@@ -7,7 +7,8 @@ import CallToAction from "./CallToAction";
 import Technologies from "./Technologies";
 import ClientProcess from "./ClientProcess";
 import programmerGif from "../../assets/programmer.gif";
-import { Link } from "react-router-dom";import React from "react";
+import { Link } from "react-router-dom";
+import React from "react";
 
 import Typewriter from "react-typewriter-effect";
 import WhatICanOffer from "./WhatICanOffer";
