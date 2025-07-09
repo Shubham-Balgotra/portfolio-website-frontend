@@ -61,14 +61,26 @@ export default function Home({ darkMode }) {
               loop={true}
             />
           </div>
-              
-          <Link
-            to="/contact"
-            className="inline-block mt-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition"
-          >
-            Let’s Work Together
-          </Link>
-          
+
+          <div className="p-2 flex flex-wrap gap-4">
+            <Link
+              to="/contact"
+              className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition"
+            >
+              Let’s Work Together
+            </Link>
+            <Link
+              to="/blog"
+              className={`px-6 py-3 rounded-md font-semibold transition border
+      ${
+        darkMode
+          ? "border-white text-white hover:bg-white hover:text-black"
+          : "border-black text-black hover:bg-black hover:text-white"
+      }`}
+            >
+              Read Articles
+            </Link>
+          </div>
         </div>
 
         {/* RIGHT: IMAGE */}
@@ -98,7 +110,7 @@ export default function Home({ darkMode }) {
       {/* === TECHNOLOGIES === */}
       <Technologies darkMode={darkMode} />
 
-      <Subscribe darkMode={darkMode}/>
+      <Subscribe darkMode={darkMode} />
 
       {/* === CALL TO ACTION === */}
       <CallToAction darkMode={darkMode} />
