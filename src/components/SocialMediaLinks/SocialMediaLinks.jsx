@@ -22,7 +22,7 @@ const SocialMediaLinks = ({ className = "" ,darkMode}) => {
         href="https://x.com/BalgotraShubham/"
         target="_blank"
         rel="noopener noreferrer"
-         className={`${darkMode?"hover:text-gray-600 text-xl":"hover:text-black text-xl"}`}
+        className="hover:text-blue-600 text-xl"
         aria-label="Twitter"
         title="Twitter"
       >
@@ -52,7 +52,7 @@ const SocialMediaLinks = ({ className = "" ,darkMode}) => {
         href="https://in.pinterest.com/shubhambalgotra/"
         target="_blank"
         rel="noopener noreferrer"
-        className={`${darkMode?"hover:text-gray-600 text-xl":"hover:text-red-500 text-xl"}`}
+        className="hover:text-red-500 text-xl"
         aria-label="Pinterest"
         title="Pinterest"
       >
@@ -62,7 +62,7 @@ const SocialMediaLinks = ({ className = "" ,darkMode}) => {
         href="https://www.instagram.com/shubhambalgotra/"
         target="_blank"
         rel="noopener noreferrer"
-        className={`${darkMode?"hover:text-gray-600 text-xl":"hover:text-pink-500 text-xl"}`}
+        className="hover:text-pink-500 text-xl"
         aria-label="Instagram"
         title="Instagram"
       >
