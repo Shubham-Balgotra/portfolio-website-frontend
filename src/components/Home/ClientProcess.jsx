@@ -27,7 +27,7 @@ const steps = [
 export default function ClientProcess({ darkMode }) {
   return (
     <section
-      className={`relative w-full px-4 py-10 lg:py-14 flex items-center justify-center min-h-screen ${
+      className={`relative w-full px-4 py-10 lg:py-14 flex items-center justify-center min-w-[90vh]${
         darkMode ? "bg-gray-950 text-gray-300" : "bg-gray-50 text-gray-800"
       }`}
     >
