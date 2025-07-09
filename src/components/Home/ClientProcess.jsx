@@ -27,21 +27,21 @@ const steps = [
 export default function ClientProcess({ darkMode }) {
   return (
     <section
-      className={`w-full px-4 py-10 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto ${
-        darkMode ? "bg-black text-gray-300" : "bg-gray-50 text-gray-800"
+      className={`w-full  px-4 py-10 lg:py-14 mx-auto ${ //md:px-12 lg:px-24 xl:px-48 
+        darkMode ? "bg-gray-1000 text-gray-300" : "bg-gray-50 text-gray-800"
       }`}
     >
       <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b pb-2">
-        🧩 My Work Process
+         My Work Process
       </h2>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-12  sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 lg:px-4">
         {steps.map((step, index) => (
           <div
             key={index}
             className={`rounded-xl p-6 border transition duration-300 shadow-md hover:shadow-xl ${
               darkMode
-                ? "bg-[#000000] text-gray-300 border-gray-700 shadow-gray-800"
+                ? "bg-gray-950 text-gray-300 border-gray-700 shadow-gray-800"
                 : "bg-white text-gray-700 border-gray-200 shadow-gray-100"
             }`}
           >
