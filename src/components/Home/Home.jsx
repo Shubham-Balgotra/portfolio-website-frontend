@@ -4,6 +4,8 @@ import Typewriter from "react-typewriter-effect";
 import WhatICanOffer from "./WhatICanOffer";
 import ServicesSection from "./ServicesSection";
 import CallToAction from "./CallToAction";
+import Technologies from "./Technologies";
+import ClientProcess from "./ClientProcess";
 import programmerGif from "../../assets/programmer.gif";
 import { Link } from "react-router-dom";
 
@@ -65,6 +67,8 @@ export default function Home({ darkMode }) {
 
       <WhatICanOffer darkMode={darkMode} />
       <ServicesSection  darkMode={darkMode}/>
+      <Technologies darkMode={darkMode}/>
+      <ClientProcess darkMode={darkMode}/>
       <CallToAction  darkMode={darkMode}/>
 
       <p className={`m-2 ${darkMode ? "dark-text" : ""}`}>Social Media Links</p>
