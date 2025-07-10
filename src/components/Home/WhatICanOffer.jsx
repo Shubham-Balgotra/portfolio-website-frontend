@@ -43,7 +43,7 @@ export default function WhatICanOffer({ darkMode }) {
             },
             {
               title: "Deployment & Hosting",
-              desc: "I can host your project on Vercel or Render, with custom domains, environment variables, and version control via GitHub.",
+              desc: "I can host your project on Vercel, Hostinger, Railway or Render, with custom domains, environment variables, and version control via GitHub.",
             },
           ].map((item, index) => (
             <li
