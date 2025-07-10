@@ -40,14 +40,44 @@ const About = ({darkMode}) => {
           innovation.
         </p>
 
-        <p className=" text-lg leading-relaxed">
-          I’m now seeking opportunities where I can contribute to impactful
-          projects, learn from talented teams, and grow into a more advanced
-          developer — while delivering great user experiences along the way.
-        </p>
-{/*         <br /> */}
-{/*         <SocialMediaLinks darkMode={darkMode} /> */}
-      {/* </div> */}
+        <p className="text-lg leading-relaxed">
+  I’m now seeking opportunities where I can contribute to impactful
+  projects, learn from talented teams, and grow into a more advanced
+  developer — while delivering great user experiences along the way.
+</p>
+
+<p className="text-lg leading-relaxed mt-4">
+  Outside of development, I’m passionate about stories — whether through books, films, or games. 
+  I share my reading journey on{" "}
+  <a
+    href="https://app.thestorygraph.com/profile/shubhambalgotra/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-blue-600 hover:underline"
+  >
+    The StoryGraph
+  </a>
+  , log films on{" "}
+  <a
+    href="https://letterboxd.com/ShubhamBalgotra/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-blue-600 hover:underline"
+  >
+    Letterboxd
+  </a>
+  , and track my game progress on{" "}
+  <a
+    href="https://backloggd.com/u/ShubhamBalgotra/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-blue-600 hover:underline"
+  >
+    Backloggd
+  </a>
+  . I believe that great storytelling inspires thoughtful design and better user experiences.
+</p>
+
     </section>
   );
 };
