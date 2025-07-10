@@ -175,7 +175,8 @@ const BlogPost = ({ darkMode }) => {
           </div>
         </div>
       )}
-      <div className="flex flex-wrap gap-2 mt-2">
+{/*       <div className="flex flex-wrap gap-2 mt-2"> */}
+       <div className="px-4 sm:px-6 md:px-10 mt-4 flex flex-wrap gap-2">
         {blog.tags.map((tag, i) => (
           <span
             key={i}
@@ -189,7 +190,8 @@ const BlogPost = ({ darkMode }) => {
       </div>
 
       {/* === Blog Markdown Content === */}
-                 <div className="min-h-screen mt-4 mx-auto sm:px-3 md:px-10">
+{/*                  <div className="min-h-screen mt-4 mx-auto sm:px-3 md:px-10"> */}
+                 <div className="min-h-screen mt-6 px-4 sm:px-6 md:px-10 xl:px-32">
                   <div
              className={`prose sm:prose-base md:prose-lg lg:prose-xl max-w-none leading-relaxed ${
                darkMode ? "prose-invert text-gray-300" : "text-gray-900"
