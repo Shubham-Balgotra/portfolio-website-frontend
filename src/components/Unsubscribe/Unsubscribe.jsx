@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+const backendURL = import.meta.env.VITE_BACKEND_BASE_URL;
 const Unsubscribe = () => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("loading"); // loading | confirm | success | error
