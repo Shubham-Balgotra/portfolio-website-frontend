@@ -1,3 +1,5 @@
+
+const backendURL = import.meta.env.VITE_BACKEND_BASE_URL;
 import React, { useState } from "react";
 
 const Subscribe = ({ darkMode }) => {
@@ -9,7 +11,7 @@ const Subscribe = ({ darkMode }) => {
     if (!email || !email.includes("@")) return;
 
     try {
-      const res = await fetch("/api/subscribe", {
+      const res = await fetch(`${backendURL}/api/subscribe`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
