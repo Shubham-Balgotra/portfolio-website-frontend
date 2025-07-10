@@ -17,7 +17,7 @@ const Unsubscribe = () => {
 
   const handleUnsubscribe = async () => {
     try {
-      const res = await fetch(`${backendURL}/api/subscribe`, {
+      const res = await fetch(`${backendURL}/api/unsubscribe`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
