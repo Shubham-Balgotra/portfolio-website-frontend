@@ -45,7 +45,7 @@ const Subscribe = ({ darkMode }) => {
     >
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-2xl font-bold mb-4">
-          📬 Get new blog posts in your inbox — subscribe now
+          📬 Subscribe to get latest updates of My Blogs
         </h2>
 
         {submitted ? (
