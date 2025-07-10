@@ -33,7 +33,8 @@ export default function Home({ darkMode }) {
         )}
 
         {/* LEFT: TEXT */}
-        <div className="flex-1 text-center md:text-left max-w-xl z-10">
+{/*       <div className="flex-1 text-center md:text-left max-w-xl z-10"> */}
+          <div className="flex-1 flex flex-col items-center text-center md:items-start md:text-left max-w-xl z-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold mb-4 leading-tight">
             Hi, I’m{" "}
             <span className="bg-gradient-to-r from-[#166472] via-[#1f538f] to-[#367baf] bg-clip-text text-transparent">
@@ -62,7 +63,8 @@ export default function Home({ darkMode }) {
             />
           </div>
 
-          <div className="p-2 flex flex-wrap gap-4">
+{/*           <div className="p-2 flex flex-wrap gap-4"> */}
+        <div className="p-2 flex flex-wrap justify-center md:justify-start gap-4">
             <Link
               to="/contact"
               className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition"
