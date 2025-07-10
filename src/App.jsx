@@ -12,6 +12,7 @@ import DynamicTitle from "./components/Routes/DynamicTitle";
 import ScrollToTop from "./components/ScroolToTop";
 import BlogHome from "./components/Blogs/BlogHome";
 import BlogPost from "./components/Blogs/BlogPost/BlogPost";
+import Unsubscriber from "./components/Unsubscribe/Unsubscriber";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -42,6 +43,7 @@ function App() {
           <Route path="/project" element={<Projects darkMode={darkMode} />} />
           <Route path="/resume" element={<Resume darkMode={darkMode} />} />
           <Route path="/contact" element={<Contact darkMode={darkMode} />} />
+          <Route path="/unsubscribe" element={<Unsubscriber />} />
         </Routes>
       </main>
 
