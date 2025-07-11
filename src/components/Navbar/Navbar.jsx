@@ -32,7 +32,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Blogs", path: "/blog/page=1" },
+    { name: "Blogs", path: "/blog/" },
     { name: "Projects", path: "/project" },
     { name: "Resume", path: "/resume" },
     { name: "Contact", path: "/contact" },
