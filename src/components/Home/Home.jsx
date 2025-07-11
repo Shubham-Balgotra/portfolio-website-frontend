@@ -7,6 +7,7 @@ import CallToAction from "./CallToAction";
 import programmerGif from "../../assets/programmer.gif";
 import ClientProcess from "./ClientProcess";
 import Technologies from "./Technologies";
+import Testimonial from "./Testimonial";
 import SocialMediaLinks from "../SocialMediaLinks/SocialMediaLinks";
 import Subscribe from "../Subscribe/Subscribe";
 
@@ -111,6 +112,8 @@ export default function Home({ darkMode }) {
 
       {/* === TECHNOLOGIES === */}
       <Technologies darkMode={darkMode} />
+
+      <Testimonial darkMode={darkMode} />
 
       <Subscribe darkMode={darkMode} />
 
