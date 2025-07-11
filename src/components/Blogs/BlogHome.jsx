@@ -121,26 +121,30 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+
 const backendBaseURL = import.meta.env.VITE_BACKEND_BASE_URL;
-// import spinner from "../assets/spinner.gif";
 
 const BlogHome = ({ darkMode }) => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
+    setLoading(true);
     axios
-      .get(`${backendBaseURL}/api/blogs`)
-      // .get("https://portfolio-website-backend-production-f66e.up.railway.app/api/blogs")
-      .then((res) => setBlogs(res.data))
+      .get(`${backendBaseURL}/api/blogs?page=${currentPage}`)
+      .then((res) => {
+        setBlogs(res.data.blogs);
+        setTotalPages(res.data.totalPages);
+      })
       .catch((err) => console.error("Error fetching blogs:", err))
       .finally(() => setLoading(false));
-  }, []);
+  }, [currentPage]);
 
   if (loading) {
     return (
-      <div className={` min-h-screen flex items-center justify-center`}>
-        {/*         <img src={spinner} alt="Loading..." className="w-16 h-16" /> */}
+      <div className="min-h-screen flex items-center justify-center">
         <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
@@ -148,10 +152,10 @@ const BlogHome = ({ darkMode }) => {
 
   return (
     <section
-      className={` mt-10 w-full px-4 py-10 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto`}
+      className={`mt-10 w-full px-4 py-10 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto`}
     >
       <h2
-        className={`text-2xl md:text-3xl font-bold  mb-6 border-b pb-2 ${
+        className={`text-2xl md:text-3xl font-bold mb-6 border-b pb-2 ${
           darkMode ? "text-white" : "text-gray-800"
         }`}
       >
@@ -165,7 +169,7 @@ const BlogHome = ({ darkMode }) => {
         Articles, tutorials, and dev notes.
       </p>
 
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 ">
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {blogs.map((post) => (
           <div
             key={post._id}
@@ -173,13 +177,13 @@ const BlogHome = ({ darkMode }) => {
               darkMode
                 ? "bg-black text-blue-400 hover:text-blue-600"
                 : "bg-white text-gray-800 hover:text-blue-600"
-            } rounded-xl shadow-md hover:shadow-xl transition-all duration-300  border hover:border-blue-400`}
+            } rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border hover:border-blue-400`}
           >
             {post.imageURL && (
               <img
                 src={post.imageURL}
                 alt={post.title}
-                className="w-full h-48 object-cover rounded-t-xl mb-2 "
+                className="w-full h-48 object-cover rounded-t-xl mb-2"
               />
             )}
 
@@ -208,7 +212,11 @@ const BlogHome = ({ darkMode }) => {
               {post.tags.map((tag, i) => (
                 <span
                   key={i}
-                  className={`${darkMode?" bg-gray-900 text-gray-300":" bg-blue-50 text-blue-700"} px-1.5 py-0.5 rounded-full text-[10px] font-medium`}
+                  className={`${
+                    darkMode
+                      ? "bg-gray-900 text-gray-300"
+                      : "bg-blue-50 text-blue-700"
+                  } px-1.5 py-0.5 rounded-full text-[10px] font-medium`}
                 >
                   #{tag}
                 </span>
@@ -223,6 +231,29 @@ const BlogHome = ({ darkMode }) => {
             </Link>
           </div>
         ))}
+      </div>
+
+      {/* Pagination */}
+      <div className="flex justify-center items-center mt-10 gap-4">
+        <button
+          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          disabled={currentPage === 1}
+          className="px-4 py-2 rounded border text-sm font-medium disabled:opacity-50"
+        >
+          ◀ Previous
+        </button>
+        <span className="text-sm">
+          Page <strong>{currentPage}</strong> of <strong>{totalPages}</strong>
+        </span>
+        <button
+          onClick={() =>
+            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+          }
+          disabled={currentPage === totalPages}
+          className="px-4 py-2 rounded border text-sm font-medium disabled:opacity-50"
+        >
+          Next ▶
+        </button>
       </div>
     </section>
   );
