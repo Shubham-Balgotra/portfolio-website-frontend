@@ -204,7 +204,7 @@ const BlogHome = ({ darkMode }) => {
   <button
     onClick={() => handlePageChange(currentPage - 1)}
     disabled={currentPage === 1}
-    className="px-3 py-1 rounded border text-sm font-medium disabled:opacity-50"
+    className={`px-3 py-1 rounded border ${darkMode?"text-gray-300 bg-gray-900":"text-gray-700 bg-gray-50"} text-sm font-medium disabled:opacity-50`}
   >
     ◀ Previous
   </button>
@@ -249,7 +249,7 @@ const BlogHome = ({ darkMode }) => {
   <button
     onClick={() => handlePageChange(currentPage + 1)}
     disabled={currentPage === totalPages}
-    className="px-3 py-1 rounded border text-sm font-medium disabled:opacity-50"
+    className={`px-3 py-1 rounded border ${darkMode?"text-gray-300 bg-gray-900":"text-gray-700 bg-gray-50"} text-sm font-medium disabled:opacity-50`}
   >
    Next ▶
   </button>
