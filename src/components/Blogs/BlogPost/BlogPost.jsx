@@ -143,16 +143,21 @@ const BlogList = ({ darkMode }) => {
 
   // fetch on mount & when `page` changes
   useEffect(() => {
-    setLoading(true);
-    axios
-      .get(`${backendBaseURL}/api/blogs?page=${page}`)
-      .then((res) => {
-        setBlogs(res.data.blogs);
-        setTotalPages(res.data.totalPages);
-      })
-      .catch((err) => console.error("Blog list error:", err))
-      .finally(() => setLoading(false));
-  }, [page]);
+  setLoading(true);
+  const url = `${backendBaseURL}/api/blogs?page=${page}`;
+  console.log("Fetching blogs from URL:", url);
+
+  axios
+    .get(url)
+    .then((res) => {
+      console.log("Response data:", res.data);
+      setBlogs(res.data.blogs);
+      setTotalPages(res.data.totalPages);
+    })
+    .catch((err) => console.error("Blog list error:", err))
+    .finally(() => setLoading(false));
+}, [page]);
+
 
   /* ----------  Spinner ---------- */
   if (loading) {
