@@ -91,7 +91,7 @@ function App() {
           <Route path="/about" element={<About darkMode={darkMode} />} />
 
           {/* Blog routes */}
-          <Route path="/blog" element={<BlogHome darkMode={darkMode} />} />
+{/*           <Route path="/blog" element={<BlogHome darkMode={darkMode} />} /> */}
           <Route path="/blog/page/:pageNum" element={<BlogHome darkMode={darkMode} />} />
           <Route path="/blog/:slug" element={<BlogPost darkMode={darkMode} />} />
 
