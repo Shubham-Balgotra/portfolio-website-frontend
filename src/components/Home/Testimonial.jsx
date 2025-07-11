@@ -19,7 +19,7 @@ const testimonials = [
 const Testimonial = ({ darkMode }) => {
   return (
     <section
-      className={`w-full px-4 py-14 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto ${
+      className={`w-full px-4 py-14 md:px-12 lg:px-24 xl:px-48 max-w-screen mx-auto ${
         darkMode ? "bg-black text-gray-100" : "bg-gray-100 text-gray-800"
       }`}
     >
