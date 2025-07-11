@@ -73,7 +73,7 @@ export default function Home({ darkMode }) {
               Let’s Work Together
             </Link>
             <Link
-              to="/blog"
+              to="/blog/page=1"
               className={`px-6 py-3 rounded-md font-semibold transition border
       ${
         darkMode
