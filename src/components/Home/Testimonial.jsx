@@ -21,7 +21,7 @@ const Testimonial = ({ darkMode }) => {
   return (
     <section
       className={`w-full px-4 py-14 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto ${
-        darkMode ? "bg-gray-900 text-gray-100" : "bg-gray-100 text-gray-800"
+        darkMode ? "bg-black text-gray-100" : "bg-gray-100 text-gray-800"
       }`}
     >
       <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">
