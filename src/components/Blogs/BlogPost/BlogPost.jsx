@@ -126,6 +126,126 @@
 
 // export default BlogPost;
 
+
+
+// import React, { useEffect, useState } from "react";
+// import { Link, useSearchParams } from "react-router-dom";
+// import axios from "axios";
+
+// const backendBaseURL = import.meta.env.VITE_BACKEND_BASE_URL;
+// const PAGE_SIZE = 9;
+
+// const BlogList = ({ darkMode }) => {
+//   const [blogs, setBlogs] = useState([]);
+//   const [totalPages, setTotalPages] = useState(1);
+//   const [loading, setLoading] = useState(true);
+
+//   const [searchParams, setSearchParams] = useSearchParams();
+//   const page = parseInt(searchParams.get("page") || "1", 10);
+
+//   // fetch on mount & when `page` changes
+//   useEffect(() => {
+//   setLoading(true);
+//   const url = `${backendBaseURL}/api/blogs?page=${page}`;
+//   console.log("Fetching blogs from URL:", url);
+
+//   axios
+//     .get(url)
+//     .then((res) => {
+//       console.log("Response data:", res.data);
+//       setBlogs(res.data.blogs);
+//       setTotalPages(res.data.totalPages);
+//     })
+//     .catch((err) => console.error("Blog list error:", err))
+//     .finally(() => setLoading(false));
+// }, [page]);
+
+
+//   /* ----------  Spinner ---------- */
+//   if (loading) {
+//     return (
+//       <div className="min-h-screen flex items-center justify-center">
+//         <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
+//       </div>
+//     );
+//   }
+
+//   /* ----------  Page UI ---------- */
+//   return (
+//     <div className="min-h-screen px-4 sm:px-6 lg:px-10 xl:px-24 py-10">
+//       <h1 className="text-3xl font-bold mb-8">
+//         {darkMode ? "📚 Blogs" : "📚 Blogs"}
+//       </h1>
+
+//       {/* grid of 9 blog cards */}
+//       <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+//         {blogs.map((b) => (
+//           <Link
+//             key={b._id}
+//             to={`/blog/${b.slug}`}
+//             className={`block rounded overflow-hidden shadow-lg transition hover:-translate-y-1 ${
+//               darkMode ? "bg-gray-800 text-gray-200" : "bg-white"
+//             }`}
+//           >
+//             {b.imageURL && (
+//               <img
+//                 src={b.imageURL}
+//                 alt={b.title}
+//                 className="h-40 w-full object-cover object-top"
+//               />
+//             )}
+//             <div className="p-4">
+//               <p className="text-xs text-blue-600 mb-1">
+//                 {new Date(b.date).toLocaleDateString()}
+//               </p>
+//               <h2 className="text-lg font-semibold line-clamp-2">{b.title}</h2>
+//               <p className="text-sm mt-2 line-clamp-3">{b.excerpt}</p>
+//             </div>
+//           </Link>
+//         ))}
+//       </div> 
+
+//       {/* ----------  Pagination ---------- */}
+//       <div className="mt-10 flex justify-center gap-2">
+//         <button
+//           disabled={page === 1}
+//           onClick={() => setSearchParams({ page: page - 1 })}
+//           className="px-3 py-1 rounded hover:bg-blue-600 hover:text-white disabled:opacity-40"
+//         >
+//           « Prev
+//         </button>
+
+//         {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+//           <button
+//             key={p}
+//             onClick={() => setSearchParams({ page: p })}
+//             className={`px-3 py-1 rounded ${
+//               p === page
+//                 ? "bg-blue-600 text-white"
+//                 : "hover:bg-blue-100 dark:hover:bg-gray-700"
+//             }`}
+//           >
+//             {p}
+//           </button>
+//         ))}
+
+//         <button
+//           disabled={page === totalPages}
+//           onClick={() => setSearchParams({ page: page + 1 })}
+//           className="px-3 py-1 rounded hover:bg-blue-600 hover:text-white disabled:opacity-40"
+//         >
+//           Next »
+//         </button>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default BlogList;
+
+
+
+
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import axios from "axios";
@@ -141,26 +261,43 @@ const BlogList = ({ darkMode }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const page = parseInt(searchParams.get("page") || "1", 10);
 
-  // fetch on mount & when `page` changes
   useEffect(() => {
-  setLoading(true);
-  const url = `${backendBaseURL}/api/blogs?page=${page}`;
-  console.log("Fetching blogs from URL:", url);
+    setLoading(true);
+    const url = `${backendBaseURL}/api/blogs?page=${page}`;
+    console.log("Fetching blogs from URL:", url);
 
-  axios
-    .get(url)
-    .then((res) => {
-      console.log("Response data:", res.data);
-      setBlogs(res.data.blogs);
-      setTotalPages(res.data.totalPages);
-    })
-    .catch((err) => console.error("Blog list error:", err))
-    .finally(() => setLoading(false));
-}, [page]);
+    axios
+      .get(url)
+      .then((res) => {
+        console.log("Raw response data:", res);
+        console.log("Response data body:", res.data);
 
+        if (!res.data || !Array.isArray(res.data.blogs)) {
+          console.warn("Warning: response data.blogs is not an array:", res.data.blogs);
+          setBlogs([]);
+          setTotalPages(1);
+          return;
+        }
 
-  /* ----------  Spinner ---------- */
+        setBlogs(res.data.blogs);
+        setTotalPages(res.data.totalPages);
+
+        console.log(`Set blogs state with ${res.data.blogs.length} items`);
+        console.log(`Set totalPages state to ${res.data.totalPages}`);
+      })
+      .catch((err) => {
+        console.error("Blog list error:", err);
+        setBlogs([]);
+        setTotalPages(1);
+      })
+      .finally(() => {
+        setLoading(false);
+        console.log("Loading set to false");
+      });
+  }, [page, backendBaseURL]);
+
   if (loading) {
+    console.log("Loading spinner showing...");
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
@@ -168,42 +305,45 @@ const BlogList = ({ darkMode }) => {
     );
   }
 
-  /* ----------  Page UI ---------- */
+  console.log("Rendering blog list, blogs count:", blogs.length);
+
   return (
     <div className="min-h-screen px-4 sm:px-6 lg:px-10 xl:px-24 py-10">
-      <h1 className="text-3xl font-bold mb-8">
-        {darkMode ? "📚 Blogs" : "📚 Blogs"}
-      </h1>
+      <h1 className="text-3xl font-bold mb-8">{darkMode ? "📚 Blogs" : "📚 Blogs"}</h1>
 
-      {/* grid of 9 blog cards */}
       <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        {blogs.map((b) => (
-          <Link
-            key={b._id}
-            to={`/blog/${b.slug}`}
-            className={`block rounded overflow-hidden shadow-lg transition hover:-translate-y-1 ${
-              darkMode ? "bg-gray-800 text-gray-200" : "bg-white"
-            }`}
-          >
-            {b.imageURL && (
-              <img
-                src={b.imageURL}
-                alt={b.title}
-                className="h-40 w-full object-cover object-top"
-              />
-            )}
-            <div className="p-4">
-              <p className="text-xs text-blue-600 mb-1">
-                {new Date(b.date).toLocaleDateString()}
-              </p>
-              <h2 className="text-lg font-semibold line-clamp-2">{b.title}</h2>
-              <p className="text-sm mt-2 line-clamp-3">{b.excerpt}</p>
-            </div>
-          </Link>
-        ))}
-      </div> 
+        {blogs.map((b) => {
+          if (!b || !b._id) {
+            console.warn("Skipping invalid blog entry:", b);
+            return null;
+          }
+          return (
+            <Link
+              key={b._id}
+              to={`/blog/${b.slug}`}
+              className={`block rounded overflow-hidden shadow-lg transition hover:-translate-y-1 ${
+                darkMode ? "bg-gray-800 text-gray-200" : "bg-white"
+              }`}
+            >
+              {b.imageURL && (
+                <img
+                  src={b.imageURL}
+                  alt={b.title}
+                  className="h-40 w-full object-cover object-top"
+                />
+              )}
+              <div className="p-4">
+                <p className="text-xs text-blue-600 mb-1">
+                  {b.date ? new Date(b.date).toLocaleDateString() : "No date"}
+                </p>
+                <h2 className="text-lg font-semibold line-clamp-2">{b.title || "No Title"}</h2>
+                <p className="text-sm mt-2 line-clamp-3">{b.excerpt || "No Excerpt"}</p>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
 
-      {/* ----------  Pagination ---------- */}
       <div className="mt-10 flex justify-center gap-2">
         <button
           disabled={page === 1}
