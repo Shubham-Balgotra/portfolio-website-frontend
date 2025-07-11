@@ -236,7 +236,7 @@ const BlogHome = ({ darkMode }) => {
           onClick={() => handlePageChange(item)}
           className={`px-3 py-1 rounded text-sm border ${
             currentPage === item
-              ? "bg-blue-600 text-white font-semibold"
+              ? "bg-gradient-to-r from-[#166472] via-[#1f538f] to-[#367baf] text-white font-semibold"
               : "hover:bg-gray-100 dark:hover:bg-gray-800"
           }`}
         >
