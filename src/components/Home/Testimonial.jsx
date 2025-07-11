@@ -1,5 +1,5 @@
 import React from "react";
-import defaultImg from "../assets/testimonial/sample.jpg"
+import defaultImg from "../assets/testimonial/sample.jpg";
 const testimonials = [
   {
     name: "Coming Soon",
