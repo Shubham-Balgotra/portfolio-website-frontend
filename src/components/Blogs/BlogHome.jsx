@@ -117,17 +117,19 @@
 // };
 
 // export default BlogHome;
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 const backendBaseURL = import.meta.env.VITE_BACKEND_BASE_URL;
 
 const BlogHome = ({ darkMode }) => {
+  const { pageNum } = useParams();
+  const navigate = useNavigate();
+
+  const currentPage = Math.max(parseInt(pageNum) || 1, 1);
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
@@ -142,6 +144,10 @@ const BlogHome = ({ darkMode }) => {
       .finally(() => setLoading(false));
   }, [currentPage]);
 
+  const handlePageChange = (newPage) => {
+    navigate(`/blog/page/${newPage}`);
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -151,42 +157,20 @@ const BlogHome = ({ darkMode }) => {
   }
 
   return (
-    <section
-      className={`mt-10 w-full px-4 py-10 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto`}
-    >
-      <h2
-        className={`text-2xl md:text-3xl font-bold mb-6 border-b pb-2 ${
-          darkMode ? "text-white" : "text-gray-800"
-        }`}
-      >
+    <section className="mt-10 w-full px-4 py-10 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto">
+      <h2 className={`text-2xl md:text-3xl font-bold mb-6 border-b pb-2 ${darkMode ? "text-white" : "text-gray-800"}`}>
         Blogs
       </h2>
-      <p
-        className={`text-center text-gray-500 mb-6 ${
-          darkMode ? "text-gray-300" : "text-gray-800"
-        }`}
-      >
+      <p className={`text-center text-gray-500 mb-6 ${darkMode ? "text-gray-300" : "text-gray-800"}`}>
         Articles, tutorials, and dev notes.
       </p>
 
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {blogs.map((post) => (
-          <div
-            key={post._id}
-            className={`${
-              darkMode
-                ? "bg-black text-blue-400 hover:text-blue-600"
-                : "bg-white text-gray-800 hover:text-blue-600"
-            } rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border hover:border-blue-400`}
-          >
+          <div key={post._id} className={`${darkMode ? "bg-black text-blue-400 hover:text-blue-600" : "bg-white text-gray-800 hover:text-blue-600"} rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border hover:border-blue-400`}>
             {post.imageURL && (
-              <img
-                src={post.imageURL}
-                alt={post.title}
-                className="w-full h-48 object-cover rounded-t-xl mb-2"
-              />
+              <img src={post.imageURL} alt={post.title} className="w-full h-48 object-cover rounded-t-xl mb-2" />
             )}
-
             <div className="mb-2 px-3">
               <p className="text-gray-400 text-xs tracking-wide uppercase">
                 {new Date(post.date).toLocaleDateString(undefined, {
@@ -195,48 +179,29 @@ const BlogHome = ({ darkMode }) => {
                   day: "numeric",
                 })}
               </p>
-              <h3 className="text-l font-semibold transition-colors duration-200">
-                {post.title}
-              </h3>
+              <h3 className="text-l font-semibold transition-colors duration-200">{post.title}</h3>
             </div>
-
-            <p
-              className={`${
-                darkMode ? "text-gray-300" : "text-gray-600"
-              } mb-2 text-xs line-clamp-3 px-3`}
-            >
+            <p className={`${darkMode ? "text-gray-300" : "text-gray-600"} mb-2 text-xs line-clamp-3 px-3`}>
               {post.excerpt}
             </p>
-
             <div className="flex flex-wrap gap-2 text-sm mb-2 px-3">
               {post.tags.map((tag, i) => (
-                <span
-                  key={i}
-                  className={`${
-                    darkMode
-                      ? "bg-gray-900 text-gray-300"
-                      : "bg-blue-50 text-blue-700"
-                  } px-1.5 py-0.5 rounded-full text-[10px] font-medium`}
-                >
+                <span key={i} className={`${darkMode ? "bg-gray-900 text-gray-300" : "bg-blue-50 text-blue-700"} px-1.5 py-0.5 rounded-full text-[10px] font-medium`}>
                   #{tag}
                 </span>
               ))}
             </div>
-
-            <Link
-              to={`/blog/${post.slug}`}
-              className="inline-block text-blue-600 hover:text-blue-900 font-semibold transition-colors duration-200 px-3 mb-3"
-            >
+            <Link to={`/blog/${post.slug}`} className="inline-block text-blue-600 hover:text-blue-900 font-semibold transition-colors duration-200 px-3 mb-3">
               Read more →
             </Link>
           </div>
         ))}
       </div>
 
-      {/* Pagination */}
+      {/* Pagination Controls */}
       <div className="flex justify-center items-center mt-10 gap-4">
         <button
-          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
           className="px-4 py-2 rounded border text-sm font-medium disabled:opacity-50"
         >
@@ -246,9 +211,7 @@ const BlogHome = ({ darkMode }) => {
           Page <strong>{currentPage}</strong> of <strong>{totalPages}</strong>
         </span>
         <button
-          onClick={() =>
-            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-          }
+          onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
           className="px-4 py-2 rounded border text-sm font-medium disabled:opacity-50"
         >
