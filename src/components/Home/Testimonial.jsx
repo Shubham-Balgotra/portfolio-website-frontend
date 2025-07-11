@@ -3,15 +3,15 @@ import defaultImg from "../assets/testimonial/sample.jpg"
 const testimonials = [
   {
     name: "Coming Soon",
-    role: "Client feedback",,
-    image: defaultImg,, // put the image in public/images/
+    role: "Client feedback",
+    image: defaultImg, // put the image in public/images/
     text: "New testimonials from clients coming soon!"
     //text: "Shubham is incredibly dedicated. I’ve seen him transition from support to full-stack development with consistent effort and passion. Proud of his journey!",
   },
   {
     name: "Coming Soon",
-    role: "Client feedback",,
-    image: defaultImg,,
+    role: "Client feedback",
+    image: defaultImg,
     text: "New testimonials from clients coming soon!"
     //text: "His attention to detail and eagerness to learn is amazing. If you’re looking for someone committed to delivering quality, Shubham is that person!",
   },
