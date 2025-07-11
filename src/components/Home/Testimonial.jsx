@@ -1,18 +1,18 @@
 import React from "react";
 import defaultImg from "../../assets/testimonial/sample.jpg";
+import geetanjali from "../../assets/testimonial/geetanjali.png";
 const testimonials = [
   {
     name: "Geetanjali Joshi",
-    role: "Manager IT", 
-    image: defaultImg, // put the image in public/images/
+    role: "Manager IT,JakeGa", 
+    image: geetanjali, // put the image in public/images/
     text: "Shubham is incredibly dedicated. I’ve seen him transition from tech support to full-stack development with consistent effort and passion. Proud of his journey!",
   },
   {
-    name: "Coming Soon",
-    role: "Client feedback",
+    name: "Chinmay Khiller",
+    role: "Team Leader",
     image: defaultImg,
-    text: "New testimonials from clients coming soon!",
-    //text: "His attention to detail and eagerness to learn is amazing. If you’re looking for someone committed to delivering quality, Shubham is that person!",
+    text: "His attention to detail and eagerness to learn is amazing. If you’re looking for someone committed to delivering quality, Shubham is that person!",
   },
 ];
 
