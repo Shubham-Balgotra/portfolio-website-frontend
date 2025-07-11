@@ -206,7 +206,7 @@ const BlogHome = ({ darkMode }) => {
     disabled={currentPage === 1}
     className="px-3 py-1 rounded border text-sm font-medium disabled:opacity-50"
   >
-    ◀
+    ◀ Previous
   </button>
 
   {/* Page Numbers with Ellipsis */}
@@ -251,7 +251,7 @@ const BlogHome = ({ darkMode }) => {
     disabled={currentPage === totalPages}
     className="px-3 py-1 rounded border text-sm font-medium disabled:opacity-50"
   >
-    ▶
+   Next ▶
   </button>
 </div>
 
