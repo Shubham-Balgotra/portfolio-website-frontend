@@ -39,7 +39,7 @@ const Testimonial = ({ darkMode }) => {
               <img
                 src={t.image}
                 alt={t.name}
-                className="w-14 h-14 rounded-full object-cover border-2 border-blue-500"
+                className="w-14 h-14 rounded-full object-contain border-2 border-blue-500"
               />
               <div className="ml-4">
                 <h4 className="font-semibold">{t.name}</h4>
