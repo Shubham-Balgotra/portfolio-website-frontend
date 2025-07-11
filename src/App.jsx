@@ -98,7 +98,7 @@ function App() {
           <Route path="/project" element={<Projects darkMode={darkMode} />} />
           <Route path="/resume" element={<Resume darkMode={darkMode} />} />
           <Route path="/contact" element={<Contact darkMode={darkMode} />} />
-          <Route path="/unsubscribe" element={<Unsubscribe />} />
+          <Route path="/unsubscribe" element={<Unsubscribe darkMode={darkMode} />} />
         </Routes>
       </main>
 
