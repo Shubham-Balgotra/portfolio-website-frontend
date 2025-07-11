@@ -30,14 +30,20 @@ const services = [
 
 export default function ServicesSection({ darkMode }) {
   return (
-    <section
-      className={`relative w-full px-4 py-10 lg:py-14 bg-cover bg-center bg-no-repeat ${
-        darkMode ? "text-gray-300" : "bg-gray-50 text-gray-800"
-      }`}
-      style={{ backgroundImage: `url(${serviceBg})` }}
-    >
-      {/* Dark overlay when darkMode is true */}
-      {darkMode && <div className="absolute inset-0 bg-black/70 z-0" />}
+   <section
+  className={`relative w-full px-4 py-10 lg:py-14 bg-cover bg-center bg-no-repeat overflow-hidden ${
+    darkMode ? "text-gray-300" : "text-gray-800"
+  }`}
+  style={{ backgroundImage: `url(${serviceBg})` }}
+>
+  {/* Overlay for dark mode */}
+  {darkMode && <div className="absolute inset-0 bg-black/70 z-0" />}
+
+  {/* ✅ Bottom Gradient Mask to bg-gray-50 */}
+  {!darkMode && (
+    <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-gray-50 z-10 pointer-events-none" />
+  )}
+
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-[60vh]">
         <div className={`w-full border-b ${darkMode?"border-gray-300":"border-gray-900"}   mb-6 pb-2`}>
