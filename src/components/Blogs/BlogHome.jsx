@@ -199,25 +199,62 @@ const BlogHome = ({ darkMode }) => {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex justify-center items-center mt-10 gap-4">
-        <button
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-          className="px-4 py-2 rounded border text-sm font-medium disabled:opacity-50"
-        >
-          ◀ Previous
-        </button>
-        <span className="text-sm">
-          Page <strong>{currentPage}</strong> of <strong>{totalPages}</strong>
+<div className="flex justify-center items-center mt-10 gap-1 flex-wrap">
+  {/* Previous */}
+  <button
+    onClick={() => handlePageChange(currentPage - 1)}
+    disabled={currentPage === 1}
+    className="px-3 py-1 rounded border text-sm font-medium disabled:opacity-50"
+  >
+    ◀
+  </button>
+
+  {/* Page Numbers with Ellipsis */}
+  {Array.from({ length: totalPages }, (_, i) => i + 1)
+    .filter((page) => {
+      return (
+        page === 1 ||
+        page === totalPages ||
+        (page >= currentPage - 2 && page <= currentPage + 2)
+      );
+    })
+    .reduce((acc, page, idx, arr) => {
+      if (idx > 0 && page - arr[idx - 1] > 1) {
+        acc.push("ellipsis");
+      }
+      acc.push(page);
+      return acc;
+    }, [])
+    .map((item, i) =>
+      item === "ellipsis" ? (
+        <span key={`ellipsis-${i}`} className="px-2 text-sm text-gray-400">
+          ...
         </span>
+      ) : (
         <button
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-          className="px-4 py-2 rounded border text-sm font-medium disabled:opacity-50"
+          key={item}
+          onClick={() => handlePageChange(item)}
+          className={`px-3 py-1 rounded text-sm border ${
+            currentPage === item
+              ? "bg-blue-600 text-white font-semibold"
+              : "hover:bg-gray-100 dark:hover:bg-gray-800"
+          }`}
         >
-          Next ▶
+          {item}
         </button>
-      </div>
+      )
+    )}
+
+  {/* Next */}
+  <button
+    onClick={() => handlePageChange(currentPage + 1)}
+    disabled={currentPage === totalPages}
+    className="px-3 py-1 rounded border text-sm font-medium disabled:opacity-50"
+  >
+    ▶
+  </button>
+</div>
+
     </section>
   );
 };
