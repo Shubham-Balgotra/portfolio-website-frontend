@@ -3,7 +3,7 @@ import defaultImg from "../assets/testimonial/sample.jpg";
 const testimonials = [
   {
     name: "Coming Soon",
-    role: "Client feedback",
+    role: "Client feedback", 
     image: defaultImg, // put the image in public/images/
     text: "New testimonials from clients coming soon!",
     //text: "Shubham is incredibly dedicated. I’ve seen him transition from tech support to full-stack development with consistent effort and passion. Proud of his journey!",
