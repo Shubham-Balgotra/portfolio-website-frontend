@@ -196,7 +196,7 @@ const BlogList = ({ darkMode }) => {
             </div>
           </Link>
         ))}
-      </div>
+      </div> 
 
       {/* ----------  Pagination ---------- */}
       <div className="mt-10 flex justify-center gap-2">
