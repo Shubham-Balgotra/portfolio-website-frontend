@@ -1,6 +1,6 @@
 import React from "react";
 import defaultImg from "../../assets/testimonial/sample.jpg";
-import geetanjali from "../../assets/testimonial/geetanjali.png";
+import geetanjali from "../../assets/testimonial/geetanjali.jpeg";
 const testimonials = [
   {
     name: "Geetanjali Joshi",
