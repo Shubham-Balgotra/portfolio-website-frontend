@@ -45,13 +45,14 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           {/* Brand */}
           <div
             className={`font-bold transition-all duration-300 ${
-              isOpen ? "text-md" : "text-sm lg:text-3xl 2xl:text-4xl"
+            isOpen ? "text-sm" : "text-xs lg:text-xl 2xl:text-2xl"
             }`}
-          >
+            >
             <span className="bg-gradient-to-r from-[#166472] via-[#1f538f] to-[#367baf] bg-clip-text text-transparent">
-              &lt;Shubham Balgotra/&gt;
+            &lt;Shubham Balgotra/&gt;
             </span>
           </div>
+
 
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-6 2xl:space-x-12">
