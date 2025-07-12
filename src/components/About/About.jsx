@@ -13,8 +13,8 @@ const About = ({darkMode}) => {
           I'm{" "}
           <span className="font-semibold text-blue-600">Shubham Balgotra</span>,
           a self-taught MERN Stack Developer with a background in technical
-          support and over{" "}
-          <span className="font-medium">3.5 years of experience</span> in the
+          support and {" "}
+          <span className="font-medium">years of experience</span> in the
           e-governance sector. In my current role as a Technical Support
           Executive, I've successfully resolved more than{" "}
           <span className="font-medium">1,000 user-level issues</span>, helping
