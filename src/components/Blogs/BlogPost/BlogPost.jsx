@@ -319,7 +319,7 @@ const BlogPost = ({ darkMode }) => {
                     {children}
                   </code>
                 ) : (
-                  <pre className="whitespace-pre-wrap bg-gray-100 dark:bg-gray-300 p-4 rounded">
+                  <pre className="whitespace-pre-wrap bg-gray-100 dark:bg-gray-700 text-gray-300 p-4 rounded">
                     <code className={className} {...props}>
                       {children}
                     </code>
