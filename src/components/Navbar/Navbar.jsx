@@ -60,7 +60,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`transition duration-300 font-medium  text-sm lg:text-sm ${
+                className={`transition duration-300 font-medium  text-sm lg:text-md ${
                   darkMode ? "text-white" : "text-gray-700"
                 } hover:text-blue-600`}
               >
