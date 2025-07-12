@@ -304,35 +304,47 @@ const BlogPost = ({ darkMode }) => {
 
       {/* Markdown Content */}
       <div className="min-h-screen mt-6 px-4 sm:px-6 md:px-10 xl:px-32">
-        <div
-          className={`prose sm:prose-base md:prose-lg lg:prose-xl max-w-none leading-relaxed ${
-            darkMode ? "prose-invert text-gray-300" : "text-gray-900"
-          }`}
-          style={{ fontFamily: "'Merriweather', serif" }}
-        >
-          <ReactMarkdown
-            remarkPlugins={[remarkBreaks, remarkGfm]}
-            components={{
-              code({ node, inline, className, children, ...props }) {
-                return inline ? (
-                  <code className={className} {...props}>
-                    {children}
-                  </code>
-                ) : (
-                  <pre className="whitespace-pre-wrap bg-gray-100 dark:bg-gray-700 text-gray-300 p-4 rounded">
-                    <code className={className} {...props}>
-                      {children}
-                    </code>
-                  </pre>
-                );
-              },
-            }}
-          >
-            {blog.content}
+  <div
+    className={`prose sm:prose-base md:prose-lg lg:prose-xl max-w-none leading-relaxed ${
+      darkMode ? "prose-invert text-gray-300" : "text-gray-900"
+    }`}
+    style={{ fontFamily: "'Merriweather', serif" }}
+  >
+    <ReactMarkdown
+      remarkPlugins={[remarkBreaks, remarkGfm]}
+      components={{
+        code({ node, inline, className, children, ...props }) {
+          return inline ? (
+            <code className={className} {...props}>
+              {children}
+            </code>
+          ) : (
+            <pre
+              className="
+                not-prose 
+                overflow-x-auto 
+                max-w-full 
+                whitespace-pre 
+                break-words 
+                bg-gray-100 dark:bg-gray-900 
+                text-gray-800 dark:text-gray-300 
+                text-sm sm:text-base 
+                p-4 rounded
+              "
+            >
+              <code className={className} {...props}>
+                {children}
+              </code>
+            </pre>
+          );
+        },
+      }}
+    >
+      {blog.content}
+    </ReactMarkdown>
+  </div>
+</div>
 
-          </ReactMarkdown>
-        </div>
-      </div>
     </>
   );
 };
