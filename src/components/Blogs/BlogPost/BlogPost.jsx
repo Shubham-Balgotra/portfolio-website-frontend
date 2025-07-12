@@ -328,7 +328,8 @@ const BlogPost = ({ darkMode }) => {
               },
             }}
           >
-            {blog.content}
+            {blog.content.replace(/\\n/g, '\n')}
+
           </ReactMarkdown>
         </div>
       </div>
