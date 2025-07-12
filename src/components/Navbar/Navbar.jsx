@@ -55,12 +55,12 @@ const Navbar = ({ darkMode, setDarkMode }) => {
 
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center space-x-4 lg:space-x-6 2xl:space-x-12">
+          <div className="hidden  md:flex items-center space-x-4 lg:space-x-6 2xl:space-x-12">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`transition duration-300 font-medium text-base lg:text-lg ${
+                className={`transition duration-300 font-small  text-base lg:text-lg ${
                   darkMode ? "text-white" : "text-gray-700"
                 } hover:text-blue-600`}
               >
