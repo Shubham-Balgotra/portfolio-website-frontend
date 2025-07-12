@@ -306,7 +306,7 @@ const BlogPost = ({ darkMode }) => {
       <div className="min-h-screen mt-6 px-4 sm:px-6 md:px-10 xl:px-32">
         <div
           className={`prose sm:prose-base md:prose-lg lg:prose-xl max-w-none leading-relaxed ${
-            darkMode ? "prose-invert text-gray-300" : "text-gray-300"
+            darkMode ? "prose-invert text-gray-300" : "text-gray-900"
           }`}
           style={{ fontFamily: "'Merriweather', serif" }}
         >
@@ -319,7 +319,7 @@ const BlogPost = ({ darkMode }) => {
                     {children}
                   </code>
                 ) : (
-                  <pre className="whitespace-pre-wrap bg-gray-100 dark:bg-gray-800 p-4 rounded">
+                  <pre className="whitespace-pre-wrap bg-gray-100 dark:bg-gray-300 p-4 rounded">
                     <code className={className} {...props}>
                       {children}
                     </code>
