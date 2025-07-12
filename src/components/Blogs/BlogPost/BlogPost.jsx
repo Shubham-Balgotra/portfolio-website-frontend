@@ -169,7 +169,7 @@ const BlogPost = ({ darkMode }) => {
       </div>
 
       {/* Markdown Content */}
-      <div className="min-h-screen mt-6 px-4 sm:px-6 md:px-10 xl:px-32 pb-6">
+      <div className="min-h-screen mt-6 px-4 sm:px-6 md:px-10 xl:px-32 pb-10">
   <div
     className={`prose sm:prose-base md:prose-lg lg:prose-xl max-w-none leading-relaxed ${
       darkMode ? "prose-invert text-gray-300" : "text-gray-900"
