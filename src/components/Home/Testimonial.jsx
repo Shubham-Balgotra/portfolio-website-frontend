@@ -10,7 +10,7 @@ const testimonials = [
   },
   {
     name: "Chinmay Khiller",
-    role: "Team Leader",
+    role: "Team Leader,Taskus",
     image: chinmay,
     text: "His attention to detail and eagerness to learn is amazing. If you’re looking for someone committed to delivering quality, Shubham is that person!",
   },
