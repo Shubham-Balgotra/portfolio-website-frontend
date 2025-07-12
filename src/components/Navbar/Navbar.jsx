@@ -54,7 +54,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           </div>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center space-x-4 lg:space-x-8 2xl:space-x-12">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-6 2xl:space-x-12">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
