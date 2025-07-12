@@ -1,5 +1,5 @@
 import React from "react";
-import defaultImg from "../../assets/testimonial/sample.jpg";
+import chinmay from "../../assets/testimonial/chinmay.jpeg";
 import geetanjali from "../../assets/testimonial/geetanjali.jpeg";
 const testimonials = [
   {
@@ -11,7 +11,7 @@ const testimonials = [
   {
     name: "Chinmay Khiller",
     role: "Team Leader",
-    image: defaultImg,
+    image: chinmay,
     text: "His attention to detail and eagerness to learn is amazing. If you’re looking for someone committed to delivering quality, Shubham is that person!",
   },
 ];
