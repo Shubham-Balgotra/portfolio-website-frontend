@@ -59,7 +59,7 @@ const About = ({darkMode}) => {
   </a>
   , log films on{" "}
   <a
-    href="https://letterboxd.com/ShubhamBalgotra/"
+    href="https://letterboxd.com/ShubhamBalgotra/films/"
     target="_blank"
     rel="noopener noreferrer"
     className="text-blue-600 hover:underline"
