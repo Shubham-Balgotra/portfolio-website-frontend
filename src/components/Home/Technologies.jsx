@@ -11,6 +11,8 @@ import gitLogo from "../../assets/tech/git.png";
 import postmanLogo from "../../assets/tech/postman.png";
 import tailwindcssLogo from "../../assets/tech/tailwindcss.png";
 import javascriptLogo from "../../assets/tech/javascript.png";
+import vscodeLogo from "../../assets/tech/vscode.png";
+import reduxLogo from "../../assets/tech/redux.png";
 
 const technologies = [
   { name: "React", logo: reactLogo },
@@ -25,6 +27,8 @@ const technologies = [
   { name: "PostMan", logo: postmanLogo },
   { name: "Tailwind CSS", logo: tailwindcssLogo },
   { name: "HTML, JS, CSS", logo: javascriptLogo },
+  { name: "Redux", logo: reduxLogo },
+  { name: "VS Code", logo: vscodeLogo },
 ];
 
 export default function Technologies({ darkMode }) {
