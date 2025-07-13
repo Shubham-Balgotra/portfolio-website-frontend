@@ -68,7 +68,7 @@ const About = ({darkMode}) => {
   </a>
   , and track my game progress on{" "}
   <a
-    href="https://backloggd.com/u/ShubhamBalgotra/"
+    href="https://backloggd.com/u/ShubhamBalgotra/games/"
     target="_blank"
     rel="noopener noreferrer"
     className="text-blue-600 hover:underline"
