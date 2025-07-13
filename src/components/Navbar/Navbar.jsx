@@ -285,7 +285,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
       {/* ---------- slide‑in mobile drawer ---------- */}
       <div
         ref={menuRef}
-        className={`fixed inset-y-0 right-0 z-50 w-1/2 transform transition-transform duration-300 ease-out md:hidden px-4 pb-4 space-y-2 ${
+        className={`pt-15 fixed inset-y-0 right-0 z-50 w-1/2 transform transition-transform duration-300 ease-out md:hidden px-4 pb-4 space-y-2 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } ${darkMode ? "bg-[#0d0d0d]" : "bg-white"}`}
       >
