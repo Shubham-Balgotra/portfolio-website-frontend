@@ -61,6 +61,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import About from "./components/About/About";
 import Projects from "./components/Project/Projects";
+import Services from "./components/Service/Service";
 import Resume from "./components/Resume/Resume";
 import Contact from "./components/Contact/Contact";
 import Home from "./components/Home/Home";
@@ -94,8 +95,9 @@ function App() {
            <Route path="/blog" element={<BlogHome darkMode={darkMode} />} /> 
           <Route path="/blog/page/:pageNum" element={<BlogHome darkMode={darkMode} />} />
           <Route path="/blog/:slug" element={<BlogPost darkMode={darkMode} />} />
-
+         
           <Route path="/project" element={<Projects darkMode={darkMode} />} />
+          <Route path="/service" element={<Services darkMode={darkMode} />} />
           <Route path="/resume" element={<Resume darkMode={darkMode} />} />
           <Route path="/contact" element={<Contact darkMode={darkMode} />} />
           <Route path="/unsubscribe" element={<Unsubscribe darkMode={darkMode} />} />
