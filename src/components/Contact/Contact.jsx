@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import contactImg from "../../assets/contact.jpg";
 import contactImgDark from "../../assets/contactDark.png";
 const backendBaseURL = import.meta.env.VITE_BACKEND_BASE_URL;
+import { useLocation } from "react-router-dom"; 
 
 const Contact = ({ darkMode }) => {
+  const location = useLocation();  
   const [form, setForm] = useState({
     fullName: "",
     email: "",
@@ -12,6 +14,19 @@ const Contact = ({ darkMode }) => {
   });
 
   const [errors, setErrors] = useState({});
+
+   /* ---------- NEW: Prefill plan message if ?plan= exists ---------- */
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const plan = params.get("plan");
+    if (plan && form.message === "") {
+      setForm((prev) => ({
+        ...prev,
+        message: `Hi Shubham,\n\nI'm interested in the *${plan}* plan. Please contact me with more details and next steps.\n\nThanks!`,
+      }));
+    }
+    // eslint-disable-next-line
+  }, [location.search]);
 
   const validate = () => {
     const errs = {};
@@ -193,7 +208,7 @@ const Contact = ({ darkMode }) => {
             </div>
 
             {/* Message */}
-            <div>
+{/*             <div>
               <label
                 className={`block text-sm font-medium ${
                   darkMode ? "text-gray-100 " : "text-gray-700 "
@@ -213,6 +228,20 @@ const Contact = ({ darkMode }) => {
               {errors.message && (
                 <p className="text-red-500 text-sm mt-1">{errors.message}</p>
               )}
+            </div> */}
+
+              <div>
+              <label className={`block text-sm font-medium ${darkMode ? "text-gray-100" : "text-gray-700"} mb-1`}>
+                Message <span className="text-red-500">*</span>
+              </label>
+              <textarea
+                name="message"
+                rows="4"
+                value={form.message}
+                onChange={handleChange}
+                className={`w-full px-4 py-2 border ${darkMode ? "text-gray-400" : ""} rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+              />
+              {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
             </div>
 
             <button
