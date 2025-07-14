@@ -54,7 +54,7 @@ const plans = [
 const Services = ({ darkMode }) => {
   return (
     <section
-      className={`min-h-screen pt-7 px-4 py-12 md:px-12 lg:px-24 xl:px-32 ${
+      className={`min-h-screen mt-10 px-4 py-12 md:px-12 lg:px-24 xl:px-32 ${
         darkMode ? "bg-black text-gray-100" : "bg-gray-50 text-gray-800"
       }`}
     >
