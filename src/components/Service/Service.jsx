@@ -288,8 +288,8 @@ const Services = ({ darkMode }) => {
         {plans.map((plan) => (
           <div
             key={plan.id}
-            className="w-full sm:w-1/2 lg:w-1/4 flex"  {/* keeps equal column counts */}
-          >
+            className="w-full sm:w-1/2 lg:w-1/4 flex" >  {/* keeps equal column counts */}
+         
             <PlanCard plan={plan} darkMode={darkMode} />
           </div>
         ))}
