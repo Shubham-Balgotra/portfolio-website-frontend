@@ -209,15 +209,10 @@ const plans = [
   },
 ];
 
-/* ------------------------------------------------------------------ */
-/* 2 / Single card component (handles “show more” toggle)             */
-/* ------------------------------------------------------------------ */
+/* ---------- 2 / PlanCard (unchanged) ------------------------------ */
 const PlanCard = ({ plan, darkMode }) => {
-  //  showAll toggles the full feature list
   const [showAll, setShowAll] = useState(false);
   const { id, name, price, deliver, features } = plan;
-
-  /* Highlight “Professional Portfolio” */
   const isPopular = id === 2;
 
   const featuresToShow = showAll ? features : features.slice(0, 5);
@@ -227,7 +222,7 @@ const PlanCard = ({ plan, darkMode }) => {
     <div
       className={`rounded-2xl shadow-lg hover:shadow-xl transition-all border
         ${darkMode ? "bg-gray-900 border-gray-700" : "bg-white"}
-        ${isPopular ? "ring-2 ring-blue-500" : ""} flex flex-col`}
+        ${isPopular ? "ring-2 ring-blue-500" : ""} flex flex-col h-full`}
     >
       {/* Header */}
       <div className="p-6 border-b border-dashed relative">
@@ -238,9 +233,7 @@ const PlanCard = ({ plan, darkMode }) => {
         )}
         <h2 className="text-xl font-semibold mb-1">{name}</h2>
         <p className="text-3xl font-bold text-blue-600">₹{price}</p>
-        <p className="text-xs text-gray-400">
-          Est. delivery — {deliver}
-        </p>
+        <p className="text-xs text-gray-400">Est. delivery — {deliver}</p>
       </div>
 
       {/* Features */}
@@ -252,20 +245,12 @@ const PlanCard = ({ plan, darkMode }) => {
           </li>
         ))}
 
-        {hasExtra && !showAll && (
+        {hasExtra && (
           <button
-            onClick={() => setShowAll(true)}
+            onClick={() => setShowAll(!showAll)}
             className="text-xs text-blue-600 underline mt-1"
           >
-            Show all features
-          </button>
-        )}
-        {hasExtra && showAll && (
-          <button
-            onClick={() => setShowAll(false)}
-            className="text-xs text-blue-600 underline mt-1"
-          >
-            Show less
+            {showAll ? "Show less" : "Show all features"}
           </button>
         )}
       </ul>
@@ -285,9 +270,7 @@ const PlanCard = ({ plan, darkMode }) => {
   );
 };
 
-/* ------------------------------------------------------------------ */
-/* 3 / Wrapper section                                                */
-/* ------------------------------------------------------------------ */
+/* ---------- 3 / Wrapper section (flex instead of grid) ------------- */
 const Services = ({ darkMode }) => {
   return (
     <section
@@ -301,9 +284,15 @@ const Services = ({ darkMode }) => {
         Choose a plan that fits your vision — custom, fast, and affordable.
       </p>
 
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
+      {/* flex container */}
+      <div className="max-w-7xl mx-auto flex flex-wrap gap-8">
         {plans.map((plan) => (
-          <PlanCard key={plan.id} plan={plan} darkMode={darkMode} />
+          <div
+            key={plan.id}
+            className="w-full sm:w-1/2 lg:w-1/4 flex"  {/* keeps equal column counts */}
+          >
+            <PlanCard plan={plan} darkMode={darkMode} />
+          </div>
         ))}
       </div>
     </section>
