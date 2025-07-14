@@ -15,6 +15,7 @@ const DynamicTitle = () => {
     else if (pathname === "/blog") title = "Blogs | Shubham Balgotra";
     else if (pathname.startsWith("/blog/")) title = "Blog Details | Shubham Balgotra";
     else if (pathname === "/project") title = "Projects | Shubham Balgotra";
+    else if (pathname === "/service") title = "Services | Shubham Balgotra";
     else if (pathname === "/resume") title = "Resume | Shubham Balgotra";
     else if (pathname === "/contact") title = "Contact | Shubham Balgotra";
 
