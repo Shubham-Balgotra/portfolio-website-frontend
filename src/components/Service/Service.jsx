@@ -136,7 +136,7 @@ const PlanCard = ({ plan, darkMode, showAll, toggleShowAll }) => {
             from-blue-600 to-blue-700 hover:to-blue-800
             text-white font-semibold py-2 rounded-md transition"
         >
-          Start my project
+          Contact to Order
         </Link>
       </div>
     </div>
