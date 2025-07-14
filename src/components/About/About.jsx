@@ -77,7 +77,9 @@ const About = ({darkMode}) => {
   </a>
   . I believe that great storytelling inspires thoughtful design and better user experiences.
 </p>
-
+ <div className="flex justify-center gap-6 flex-wrap z-10 mt-7">
+          <SocialMediaLinks darkMode={darkMode} />
+        </div>
     </section>
   );
 };
