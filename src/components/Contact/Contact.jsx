@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import contactImg from "../../assets/contact.jpg";
 import contactImgDark from "../../assets/contactDark.png";
 const backendBaseURL = import.meta.env.VITE_BACKEND_BASE_URL;
