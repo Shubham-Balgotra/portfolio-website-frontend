@@ -55,7 +55,8 @@ const Services = ({ darkMode }) => {
   return (
     <section
       className={`min-h-screen mt-14 px-4 py-12 md:px-12 lg:px-24 xl:px-32 ${
-        darkMode ? "bg-black text-gray-100" : "bg-gray-50 text-gray-800"
+        // darkMode ? "bg-black text-gray-100" : "bg-gray-50 text-gray-800"
+         darkMode ? " text-gray-100" : " text-gray-800"
       }`}
     >
       <h1 className="text-3xl md:text-4xl font-bold text-center mb-3">
