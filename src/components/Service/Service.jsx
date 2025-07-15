@@ -172,12 +172,13 @@ const PlanCard = ({ plan, darkMode, showAll, toggleShowAll }) => {
   const hasExtra = features.length > 5;
 
   return (
+    <div
     className={`
   rounded-2xl shadow-lg hover:shadow-xl transition-all border
   ${darkMode ? "bg-gray-950 border-gray-700" : "bg-white"}
   ${isPopular ? "ring-2 ring-blue-500" : ""}
   flex flex-col
-`}
+`}>
 
       {/* Header */}
       <div className="p-6 border-b border-dashed relative">
@@ -188,7 +189,7 @@ const PlanCard = ({ plan, darkMode, showAll, toggleShowAll }) => {
         )}
         <h2 className="text-xl font-semibold mb-1">{name}</h2>
         <p className="text-3xl font-bold text-blue-600">
-          {price === "—" ? "Custom" : ₹${price}}
+          {price === "—" ? "Custom" : `₹${price}`}
         </p>
         <p className="text-xs text-gray-400">Est. delivery — {deliver}</p>
       </div>
@@ -214,7 +215,7 @@ const PlanCard = ({ plan, darkMode, showAll, toggleShowAll }) => {
       {/* CTA */}
       <div className="px-6 pb-6">
         <Link
-          to={/contact?plan=${encodeURIComponent(name)}}
+          to={`/contact?plan=${encodeURIComponent(name)}`}
           className="block w-full text-center bg-gradient-to-r
           from-blue-600 to-blue-700 hover:to-blue-800
           text-white font-semibold py-2 rounded-md transition"
