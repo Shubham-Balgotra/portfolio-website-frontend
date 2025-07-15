@@ -224,7 +224,7 @@ const PlanCard = ({ plan, darkMode, showAll, toggleShowAll }) => {
   );
 };
 
-/* ---------- 3 / Wrapper section (updated for horizontal scroll) ------------- */
+/* ---------- 3 / Wrapper section (updated for increased gap and centering) ------------- */
 const Services = ({ darkMode }) => {
   const [showAllStates, setShowAllStates] = useState({});
 
@@ -250,8 +250,8 @@ const Services = ({ darkMode }) => {
       {/* Scrollable container */}
       <div className="max-w-8xl mx-auto">
         <div
-          className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory
-            lg:flex-wrap lg:overflow-x-visible lg:gap-4 lg:items-start
+          className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory
+            lg:flex-wrap lg:overflow-x-visible lg:gap-8 lg:items-start lg:justify-center
             scrollbar-thin scrollbar-thumb-blue-600 scrollbar-track-gray-200
             dark:scrollbar-track-gray-800"
           style={{ scrollSnapType: "x mandatory" }}
@@ -276,4 +276,3 @@ const Services = ({ darkMode }) => {
 };
 
 export default Services;
-
