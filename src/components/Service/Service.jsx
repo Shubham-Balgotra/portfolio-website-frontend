@@ -146,6 +146,21 @@ const plans = [
       "6 months of basic support",
     ],
   },
+  {
+  id: 5,
+  name: "Custom Plan",
+  price: "—",
+  deliver: "Flexible",
+  features: [
+    "Tailored features based on your business needs",
+    "Flexible page count, layout, and branding",
+    "Choose your own tech stack (React / MERN / Blog / Ecommerce/ Restaurant)",
+    "Guided scoping call or email consultation",
+    "Custom timeline and cost based on complexity",
+    "You explain, I build – crafted just for your idea",
+  ],
+}
+
 ];
 
 /* ---------- 2 / PlanCard (updated to remove h-full) ------------------------------ */
@@ -170,7 +185,10 @@ const PlanCard = ({ plan, darkMode, showAll, toggleShowAll }) => {
           </span>
         )}
         <h2 className="text-xl font-semibold mb-1">{name}</h2>
-        <p className="text-3xl font-bold text-blue-600">₹{price}</p>
+        <p className="text-3xl font-bold text-blue-600">
+          {price === "—" ? "Custom" : `₹${price}`}
+        </p>
+
         <p className="text-xs text-gray-400">Est. delivery — {deliver}</p>
       </div>
 
@@ -198,11 +216,12 @@ const PlanCard = ({ plan, darkMode, showAll, toggleShowAll }) => {
         <Link
           to={`/contact?plan=${encodeURIComponent(name)}`}
           className="block w-full text-center bg-gradient-to-r
-            from-blue-600 to-blue-700 hover:to-blue-800
-            text-white font-semibold py-2 rounded-md transition"
-        >
-          Contact to Order
-        </Link>
+          from-blue-600 to-blue-700 hover:to-blue-800
+          text-white font-semibold py-2 rounded-md transition"
+       >
+          {name === "Custom Plan" ? "Request Custom Quote" : "Contact to Order"}
+      </Link>
+
       </div>
     </div>
   );
