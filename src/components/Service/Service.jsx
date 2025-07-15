@@ -175,7 +175,7 @@ const PlanCard = ({ plan, darkMode, showAll, toggleShowAll }) => {
     <div
       className={`rounded-2xl shadow-lg hover:shadow-xl transition-all border
         ${darkMode ? "bg-gray-950 border-gray-700" : "bg-white"}
-        ${isPopular ? "ring-2 ring-blue-500" : ""} flex flex-col`} // Removed h-full
+        ${isPopular ? "ring-2 ring-blue-500" : ""} flex flex-col`}
     >
       {/* Header */}
       <div className="p-6 border-b border-dashed relative">
@@ -188,7 +188,6 @@ const PlanCard = ({ plan, darkMode, showAll, toggleShowAll }) => {
         <p className="text-3xl font-bold text-blue-600">
           {price === "—" ? "Custom" : `₹${price}`}
         </p>
-
         <p className="text-xs text-gray-400">Est. delivery — {deliver}</p>
       </div>
 
@@ -200,7 +199,6 @@ const PlanCard = ({ plan, darkMode, showAll, toggleShowAll }) => {
             <span>{f}</span>
           </li>
         ))}
-
         {hasExtra && (
           <button
             onClick={toggleShowAll}
@@ -218,16 +216,15 @@ const PlanCard = ({ plan, darkMode, showAll, toggleShowAll }) => {
           className="block w-full text-center bg-gradient-to-r
           from-blue-600 to-blue-700 hover:to-blue-800
           text-white font-semibold py-2 rounded-md transition"
-       >
+        >
           {name === "Custom Plan" ? "Request Custom Quote" : "Contact to Order"}
-      </Link>
-
+        </Link>
       </div>
     </div>
   );
 };
 
-/* ---------- 3 / Wrapper section (updated to adjust flex alignment) ------------- */
+/* ---------- 3 / Wrapper section (updated for horizontal scroll) ------------- */
 const Services = ({ darkMode }) => {
   const [showAllStates, setShowAllStates] = useState({});
 
@@ -250,24 +247,33 @@ const Services = ({ darkMode }) => {
         Choose a plan that fits your vision — custom, fast, and affordable.
       </p>
 
-      {/* flex container */}
-      <div className="max-w-8xl mx-auto flex flex-wrap lg:flex-nowrap gap-4 items-start"> {/* Added items-start */}
-        {plans.map((plan) => (
-          <div
-            key={plan.id}
-            className="w-full sm:w-1/2 lg:w-1/4 flex-shrink-0"
-          >
-            <PlanCard
-              plan={plan}
-              darkMode={darkMode}
-              showAll={showAllStates[plan.id] || false}
-              toggleShowAll={() => toggleShowAll(plan.id)}
-            />
-          </div>
-        ))}
+      {/* Scrollable container */}
+      <div className="max-w-8xl mx-auto">
+        <div
+          className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory
+            lg:flex-wrap lg:overflow-x-visible lg:gap-4 lg:items-start
+            scrollbar-thin scrollbar-thumb-blue-600 scrollbar-track-gray-200
+            dark:scrollbar-track-gray-800"
+          style={{ scrollSnapType: "x mandatory" }}
+        >
+          {plans.map((plan) => (
+            <div
+              key={plan.id}
+              className="w-[90%] sm:w-[70%] md:w-[45%] lg:w-1/4 flex-shrink-0 snap-center"
+            >
+              <PlanCard
+                plan={plan}
+                darkMode={darkMode}
+                showAll={showAllStates[plan.id] || false}
+                toggleShowAll={() => toggleShowAll(plan.id)}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
 export default Services;
+
