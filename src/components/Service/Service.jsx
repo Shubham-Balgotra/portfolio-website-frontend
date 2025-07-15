@@ -224,7 +224,7 @@ const PlanCard = ({ plan, darkMode, showAll, toggleShowAll }) => {
   );
 };
 
-/* ---------- 3 / Wrapper section (updated for increased gap and centering) ------------- */
+/* ---------- 3 / Wrapper section (updated for horizontal scroll on large screens and vertical scroll on small screens) ------------- */
 const Services = ({ darkMode }) => {
   const [showAllStates, setShowAllStates] = useState({});
 
@@ -250,16 +250,16 @@ const Services = ({ darkMode }) => {
       {/* Scrollable container */}
       <div className="max-w-8xl mx-auto">
         <div
-          className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory
-            lg:flex-wrap lg:overflow-x-visible lg:gap-8 lg:items-start lg:justify-center
+          className="flex flex-col gap-6 overflow-y-auto max-h-[70vh] snap-y snap-mandatory
+            lg:flex-row lg:overflow-y-visible lg:overflow-x-auto lg:gap-8 lg:max-h-none
             scrollbar-thin scrollbar-thumb-blue-600 scrollbar-track-gray-200
             dark:scrollbar-track-gray-800"
-          style={{ scrollSnapType: "x mandatory" }}
+          style={{ scrollSnapType: "y mandatory", scrollSnapType: "x mandatory" }}
         >
           {plans.map((plan) => (
             <div
               key={plan.id}
-              className="w-[90%] sm:w-[70%] md:w-[45%] lg:w-1/4 flex-shrink-0 snap-center"
+              className="w-full lg:w-1/4 flex-shrink-0 snap-center"
             >
               <PlanCard
                 plan={plan}
