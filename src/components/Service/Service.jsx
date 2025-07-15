@@ -172,11 +172,13 @@ const PlanCard = ({ plan, darkMode, showAll, toggleShowAll }) => {
   const hasExtra = features.length > 5;
 
   return (
-    <div
-      className={rounded-2xl shadow-lg hover:shadow-xl transition-all border
-        ${darkMode ? "bg-gray-950 border-gray-700" : "bg-white"}
-        ${isPopular ? "ring-2 ring-blue-500" : ""} flex flex-col}
-    >
+    className={`
+  rounded-2xl shadow-lg hover:shadow-xl transition-all border
+  ${darkMode ? "bg-gray-950 border-gray-700" : "bg-white"}
+  ${isPopular ? "ring-2 ring-blue-500" : ""}
+  flex flex-col
+`}
+
       {/* Header */}
       <div className="p-6 border-b border-dashed relative">
         {isPopular && (
