@@ -19,7 +19,7 @@ export default function IntroSplash({ onComplete }) {
       animate={{ opacity: 0 }}
       transition={{ delay: 2.5, duration: 0.5 }}
       className="fixed inset-0 z-[999] flex flex-col items-center justify-center 
-                 bg-gradient-to-br from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f] text-white"
+                 bg-gradient-to-br from-[#000000] via-[#1a1a1a] to-[#000000] text-white"
     >
       <motion.h1
         initial={{ scale: 0.8, opacity: 0 }}
