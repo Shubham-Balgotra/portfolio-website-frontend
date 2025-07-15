@@ -127,7 +127,7 @@ import ScrollToTop from "./components/ScroolToTop";
 import BlogHome from "./components/Blogs/BlogHome";
 import BlogPost from "./components/Blogs/BlogPost/BlogPost";
 import Unsubscribe from "./components/Unsubscribe/Unsubscribe";
-import IntroSplash from "./components/IntroSplash"; // <== Make sure this is added
+import IntroSplash from "./components/Home/IntroSplash"; // <== Make sure this is added
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
