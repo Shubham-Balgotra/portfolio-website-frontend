@@ -166,29 +166,29 @@ const plans = [
 /* ---------- 2 / PlanCard (updated to remove h-full) ------------------------------ */
 const PlanCard = ({ plan, darkMode, showAll, toggleShowAll }) => {
   const { id, name, price, deliver, features } = plan;
-  const isPopular = id === 2;
+  const isPopular = id === 2; // highlight Professional
 
   const featuresToShow = showAll ? features : features.slice(0, 5);
   const hasExtra = features.length > 5;
 
   return (
     <div
-      className={`rounded-2xl shadow-lg hover:shadow-xl transition-all border
+      className={`rounded-2xl shadow-lg hover:shadow-xl transition-all border flex flex-col
         ${darkMode ? "bg-gray-950 border-gray-700" : "bg-white"}
-        ${isPopular ? "ring-2 ring-blue-500" : ""} flex flex-col`}
+        ${isPopular ? "ring-2 ring-blue-500" : ""}`}
     >
       {/* Header */}
       <div className="p-6 border-b border-dashed relative">
         {isPopular && (
           <span className="absolute -top-3 right-4 bg-blue-600 text-white text-xs px-2 py-[2px] rounded-full shadow">
-            ★ Most Popular
+            ★ Most Popular
           </span>
         )}
         <h2 className="text-xl font-semibold mb-1">{name}</h2>
         <p className="text-3xl font-bold text-blue-600">
           {price === "—" ? "Custom" : `₹${price}`}
         </p>
-        <p className="text-xs text-gray-400">Est. delivery — {deliver}</p>
+        <p className="text-xs text-gray-400">Est. delivery — {deliver}</p>
       </div>
 
       {/* Features */}
@@ -214,8 +214,8 @@ const PlanCard = ({ plan, darkMode, showAll, toggleShowAll }) => {
         <Link
           to={`/contact?plan=${encodeURIComponent(name)}`}
           className="block w-full text-center bg-gradient-to-r
-          from-blue-600 to-blue-700 hover:to-blue-800
-          text-white font-semibold py-2 rounded-md transition"
+            from-blue-600 to-blue-700 hover:to-blue-800
+            text-white font-semibold py-2 rounded-md transition"
         >
           {name === "Custom Plan" ? "Request Custom Quote" : "Contact to Order"}
         </Link>
@@ -224,16 +224,14 @@ const PlanCard = ({ plan, darkMode, showAll, toggleShowAll }) => {
   );
 };
 
-/* ---------- 3 / Wrapper section (updated for horizontal scroll on large screens and vertical scroll on small screens) ------------- */
+/* ------------------------------------------------------------------ */
+/* 3 / Services section                                               */
+/* ------------------------------------------------------------------ */
 const Services = ({ darkMode }) => {
   const [showAllStates, setShowAllStates] = useState({});
 
-  const toggleShowAll = (planId) => {
-    setShowAllStates((prev) => ({
-      ...prev,
-      [planId]: !prev[planId],
-    }));
-  };
+  const toggleShowAll = (planId) =>
+    setShowAllStates((prev) => ({ ...prev, [planId]: !prev[planId] }));
 
   return (
     <section
@@ -247,29 +245,18 @@ const Services = ({ darkMode }) => {
         Choose a plan that fits your vision — custom, fast, and affordable.
       </p>
 
-      {/* Scrollable container */}
-      <div className="max-w-8xl mx-auto">
-        <div
-          className="flex flex-col gap-6 overflow-y-auto max-h-[70vh] snap-y snap-mandatory
-            lg:flex-row lg:overflow-y-visible lg:overflow-x-auto lg:gap-8 lg:max-h-none
-            scrollbar-thin scrollbar-thumb-blue-600 scrollbar-track-gray-200
-            dark:scrollbar-track-gray-800"
-          style={{ scrollSnapType: "y mandatory", scrollSnapType: "x mandatory" }}
-        >
-          {plans.map((plan) => (
-            <div
-              key={plan.id}
-              className="w-full lg:w-1/4 flex-shrink-0 snap-center"
-            >
-              <PlanCard
-                plan={plan}
-                darkMode={darkMode}
-                showAll={showAllStates[plan.id] || false}
-                toggleShowAll={() => toggleShowAll(plan.id)}
-              />
-            </div>
-          ))}
-        </div>
+      {/* Responsive Grid */}
+      <div className="max-w-7xl mx-auto grid gap-8
+          sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {plans.map((plan) => (
+          <PlanCard
+            key={plan.id}
+            plan={plan}
+            darkMode={darkMode}
+            showAll={showAllStates[plan.id] || false}
+            toggleShowAll={() => toggleShowAll(plan.id)}
+          />
+        ))}
       </div>
     </section>
   );
