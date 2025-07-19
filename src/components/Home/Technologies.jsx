@@ -36,40 +36,40 @@ export default function Technologies({ darkMode }) {
 
   return (
     <section
-      className={w-full px-4 py-10 ${
+      className={`w-full px-4 py-10 ${
         darkMode ? "bg-black text-gray-300" : "bg-gray-100 text-gray-800"
-      }}
+      }`}
     >
-      <div className="min-w-screen mx-auto flex flex-col items-center">
+      <div className="w-full max-w-7xl mx-auto flex flex-col items-center">
         <div
-          className={w-full border-b ${
+          className={`w-full border-b ${
             darkMode ? "border-gray-300" : "border-gray-900"
-          } mb-6 pb-2}
+          } mb-6 pb-2`}
         >
           <h1
-            className={text-2xl md:text-3xl lg:text-4xl font-bold ${
+            className={`text-2xl md:text-3xl lg:text-4xl font-bold ${
               darkMode ? "text-gray-300" : "text-gray-900"
-            } text-center mb-2}
+            } text-center mb-2`}
           >
             Technologies & Tools
           </h1>
         </div>
 
-        <div className="relative w-full overflow-hidden scrolling-container">
+        <div className="relative min-w-screen overflow-hidden scrolling-container">
           <div className="scrolling-track">
             {repeated.map((tech, index) => (
               <div
                 key={index}
-                className={w-full max-w-[140px] h-auto flex flex-col items-center gap-3 p-4 rounded-lg shadow-md transition hover:scale-105 ${
+                className={`w-full max-w-[140px] h-auto flex flex-col items-center gap-3 p-4 rounded-lg shadow-md transition hover:scale-105 ${
                   darkMode
                     ? "bg-gray-950 text-gray-300 shadow-gray-800"
                     : "bg-white text-gray-800 shadow-gray-200"
-                }}
+                }`}
               >
                 <div
-                  className={w-16 h-16 p-2 rounded-md flex items-center justify-center shadow ${
+                  className={`w-16 h-16 p-2 rounded-md flex items-center justify-center shadow ${
                     darkMode ? "bg-gray-300" : "bg-gray-100"
-                  }}
+                  }`}
                 >
                   <img
                     src={tech.logo}
@@ -86,45 +86,44 @@ export default function Technologies({ darkMode }) {
 
       {/* Animation styles */}
       <style>{`
-  @keyframes scroll-left-continuous {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
+        @keyframes scroll-left-continuous {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
 
-  .scrolling-container {
-    width: 100%;
-  }
+        .scrolling-container {
+          width: 100%;
+        }
 
-  .scrolling-track {
-    display: flex;
-    width: max-content;
-    animation: scroll-left-continuous 30s linear infinite;
-    gap: 2rem; /* default gap */
-  }
+        .scrolling-track {
+          display: flex;
+          width: max-content;
+          animation: scroll-left-continuous 30s linear infinite;
+          gap: 1.5rem;
+        }
 
-  @media (min-width: 640px) {
-    .scrolling-track {
-      gap: 3rem;
-    }
-  }
+        @media (min-width: 640px) {
+          .scrolling-track {
+            gap: 2.5rem;
+          }
+        }
 
-  @media (min-width: 768px) {
-    .scrolling-track {
-      gap: 4rem;
-    }
-  }
+        @media (min-width: 768px) {
+          .scrolling-track {
+            gap: 3.5rem;
+          }
+        }
 
-  @media (min-width: 1024px) {
-    .scrolling-track {
-      gap: 5.5rem;
-    }
-  }
-`}</style>
-
+        @media (min-width: 1024px) {
+          .scrolling-track {
+            gap: 5.5rem;
+          }
+        }
+      `}</style>
     </section>
   );
 }
