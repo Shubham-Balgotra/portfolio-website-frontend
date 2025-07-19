@@ -217,45 +217,67 @@ export default function Technologies({ darkMode }) {
       </div>
 
       {/* Animation styles */}
-      <style>{`
-        @keyframes scroll-left-continuous {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
+     <style>{`
+  @keyframes scroll-left-continuous {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
 
-        .scrolling-container {
-          width: 100%;
-        }
+  .scrolling-container {
+    width: 100%;
+    overflow: hidden;
+  }
 
-        .scrolling-track {
-          display: flex;
-          width: max-content;
-          animation: scroll-left-continuous 30s linear infinite;
-          gap: 1.5rem;
-        }
+  .scrolling-track {
+    display: flex;
+    flex-wrap: nowrap;
+    animation: scroll-left-continuous 30s linear infinite;
+    min-width: 200%;
+    /* You can go higher if you want a slower + longer loop */
+    gap: 1.5rem;
+  }
 
-        @media (min-width: 640px) {
-          .scrolling-track {
-            gap: 2.5rem;
-          }
-        }
+  @media (min-width: 640px) {
+    .scrolling-track {
+      gap: 2.5rem;
+    }
+  }
 
-        @media (min-width: 768px) {
-          .scrolling-track {
-            gap: 3.5rem;
-          }
-        }
+  @media (min-width: 768px) {
+    .scrolling-track {
+      gap: 3.5rem;
+    }
+  }
 
-        @media (min-width: 1024px) {
-          .scrolling-track {
-            gap: 5.5rem;
-          }
-        }
-      `}</style>
+  @media (min-width: 1024px) {
+    .scrolling-track {
+      gap: 5.5rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .scrolling-track {
+      gap: 7rem;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .scrolling-track {
+      gap: 9rem;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .scrolling-track {
+      gap: 11rem;
+    }
+  }
+`}</style>
+
     </section>
   );
 }
