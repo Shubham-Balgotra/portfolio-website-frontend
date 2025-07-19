@@ -105,7 +105,7 @@ const services = [
 export default function ServicesSection({ darkMode }) {
   return (
     <section
-      className={`relative w-full px-4 py-10 lg:py-14 bg-cover bg-center bg-no-repeat overflow-hidden ${
+      className={`relative w-full px-8 py-10 lg:py-14 bg-cover bg-center bg-no-repeat overflow-hidden ${
         darkMode ? "text-gray-300" : "text-gray-800"
       }`}
       style={{ backgroundImage: `url(${serviceBg})` }}
