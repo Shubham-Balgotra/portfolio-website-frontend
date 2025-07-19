@@ -72,9 +72,7 @@
 //       </div>
 //     </section>
 //   );
-// }
-
-import React from "react";
+// }import React from "react";
 import serviceBg from "../../assets/servicesBG.jpg";
 
 const services = [
@@ -120,10 +118,24 @@ export default function ServicesSection({ darkMode }) {
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-gray-50 z-10 pointer-events-none" />
       )}
 
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-[60vh]">
+      <div
+        className={`
+          relative z-10 flex flex-col items-center justify-center min-h-[60vh]
+          scale-[0.95] sm:scale-[0.98] md:scale-100 xl:scale-[1.05] 2xl:scale-[1.1] custom-3xl:scale-[1.15]
+          transition-transform duration-500 ease-in-out
+        `}
+      >
         {/* Header */}
-        <div className={`w-full border-b ${darkMode ? "border-gray-300" : "border-gray-900"} mb-6 pb-2`}>
-          <h1 className={`text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold ${darkMode ? "text-gray-300" : "text-gray-900"} text-center mb-2`}>
+        <div
+          className={`w-full border-b ${
+            darkMode ? "border-gray-300" : "border-gray-900"
+          } mb-6 pb-2`}
+        >
+          <h1
+            className={`text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold ${
+              darkMode ? "text-gray-300" : "text-gray-900"
+            } text-center mb-2`}
+          >
             Services
           </h1>
         </div>
@@ -134,7 +146,9 @@ export default function ServicesSection({ darkMode }) {
             <div
               key={index}
               className={`w-full max-w-xs p-5 rounded-lg shadow hover:shadow-md transition backdrop-blur-sm ${
-                darkMode ? "bg-gray-950/80 text-gray-300" : "bg-white text-gray-700"
+                darkMode
+                  ? "bg-gray-950/80 text-gray-300"
+                  : "bg-white text-gray-700"
               }`}
             >
               <h3 className="text-lg font-semibold text-blue-600 mb-2">
@@ -145,6 +159,15 @@ export default function ServicesSection({ darkMode }) {
           ))}
         </div>
       </div>
+
+      {/* Custom style for 1920px+ */}
+      <style>{`
+        @media (min-width: 1920px) {
+          .custom-3xl\\:scale-\\[1\\.15\\] {
+            transform: scale(1.15);
+          }
+        }
+      `}</style>
     </section>
   );
 }
