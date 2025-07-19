@@ -92,7 +92,7 @@ export default function ClientProcess({ darkMode }) {
           </h1>
         </div>
 
-        <div className="min-w-screen grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 px-2 sm:px-0">
+        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 px-2 sm:px-0">
           {steps.map((step, index) => (
             <div
               key={index}
