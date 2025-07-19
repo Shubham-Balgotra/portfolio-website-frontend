@@ -15,101 +15,103 @@ export default function Home({ darkMode }) {
   return (
     <>
       {/* === HERO SECTION === */}
-<section
-      className={`relative w-full min-h-[80vh] sm:min-h-screen flex flex-col-reverse md:flex-row items-center justify-center 
-        px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 
-        pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-8 sm:pb-10 md:pb-12 lg:pb-14 gap-6 sm:gap-8 md:gap-10 lg:gap-12 overflow-hidden
-        transform 
-        scale-[0.90] sm:scale-[0.95] md:scale-[0.98] lg:scale-100 xl:scale-[1.05] 2xl:scale-[1.10] custom-3xl:scale-[1.15]
-        transition-transform duration-300
-        ${
-          darkMode
-            ? "bg-gradient-to-br from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f] text-white"
-            : "bg-gradient-to-br from-[#e0f2fe] via-[#cbd5e1] to-[#93c5fd] text-gray-800"
-        }`}
-    >
-      {/* Decorative Background Blobs */}
-      {!darkMode && (
-        <>
-          <div className="absolute top-[-40px] sm:top-[-60px] lg:top-[-80px] left-[-40px] sm:left-[-60px] lg:left-[-80px] w-[250px] sm:w-[350px] lg:w-[450px] xl:w-[500px] h-[250px] sm:h-[350px] lg:h-[450px] xl:h-[500px] bg-gradient-to-br from-blue-300 to-indigo-200 rounded-full blur-3xl opacity-30 z-0" />
-          <div className="absolute bottom-[-40px] sm:bottom-[-60px] lg:bottom-[-80px] right-[-40px] sm:right-[-60px] lg:right-[-80px] w-[200px] sm:w-[250px] lg:w-[350px] xl:w-[400px] h-[200px] sm:h-[250px] lg:h-[350px] xl:h-[400px] bg-gradient-to-br from-pink-200 to-purple-200 rounded-full blur-2xl opacity-20 z-0" />
-        </>
-      )}
+ {/* === HERO SECTION === */}
+      <section
+        className={`relative w-full min-h-[80vh] sm:min-h-screen flex flex-col-reverse md:flex-row items-center justify-center 
+          px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 
+          pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-8 sm:pb-10 md:pb-12 lg:pb-14 gap-6 sm:gap-8 md:gap-10 lg:gap-12 overflow-hidden
+          transform 
+          scale-[0.90] sm:scale-[0.95] md:scale-[0.98] lg:scale-100 xl:scale-[1.05] 2xl:scale-[1.10] custom-3xl:scale-[1.15]
+          transition-transform duration-300
+          ${
+            darkMode
+              ? "bg-gradient-to-br from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f] text-white"
+              : "bg-gradient-to-br from-[#e0f2fe] via-[#cbd5e1] to-[#93c5fd] text-gray-800"
+          }`}
+      >
+        {/* Decorative Background Blobs */}
+        {!darkMode && (
+          <>
+            <div className="absolute top-[-40px] sm:top-[-60px] lg:top-[-80px] left-[-40px] sm:left-[-60px] lg:left-[-80px] w-[250px] sm:w-[350px] lg:w-[450px] xl:w-[500px] h-[250px] sm:h-[350px] lg:h-[450px] xl:h-[500px] bg-gradient-to-br from-blue-300 to-indigo-200 rounded-full blur-3xl opacity-30 z-0" />
+            <div className="absolute bottom-[-40px] sm:bottom-[-60px] lg:bottom-[-80px] right-[-40px] sm:right-[-60px] lg:right-[-80px] w-[200px] sm:w-[250px] lg:w-[350px] xl:w-[400px] h-[200px] sm:h-[250px] lg:h-[350px] xl:h-[400px] bg-gradient-to-br from-pink-200 to-purple-200 rounded-full blur-2xl opacity-20 z-0" />
+          </>
+        )}
 
-      {/* LEFT: TEXT */}
-      <div className="flex-1 flex flex-col items-center text-center md:items-start md:text-left max-w-[90%] sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl z-10">
-        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold mb-3 sm:mb-4 md:mb-5 leading-tight">
-          Hi, I’m{" "}
-          <span className="bg-gradient-to-r from-[#166472] via-[#1f538f] to-[#367baf] bg-clip-text text-transparent">
-            Shubham Balgotra
-          </span>
-        </h1>
+        {/* LEFT: TEXT */}
+        <div className="flex-1 flex flex-col items-center text-center md:items-start md:text-left max-w-[90%] sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl z-10">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold mb-3 sm:mb-4 md:mb-5 leading-tight">
+            Hi, I’m{" "}
+            <span className="bg-gradient-to-r from-[#166472] via-[#1f538f] to-[#367baf] bg-clip-text text-transparent">
+              Shubham Balgotra
+            </span>
+          </h1>
 
-        <div className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-600 dark:text-gray-300 mb-4 sm:mb-5 md:mb-6 font-medium max-w-[90%] sm:max-w-md md:max-w-lg mx-auto md:mx-0">
-          <Typewriter
-            textStyle={{
-              color: darkMode ? "#FFFFFF" : "#1F2937",
-              fontWeight: 500,
-            }}
-            startDelay={100}
-            cursorColor={darkMode ? "#FFF" : "#2563EB"}
-            multiText={[
-              "MERN Stack Developer",
-              "Technical Support Executive",
-              "Building Responsive Web Apps",
-              "Solving Real-World Tech Problems",
-            ]}
-            multiTextDelay={2000}
-            typeSpeed={100}
-            deleteSpeed={50}
-            loop={true}
-          />
-        </div>
-
-        <div className="p-2 flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4">
-          <Link
-            to="/contact"
-            className="px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition text-xs sm:text-sm md:text-base"
-          >
-            Let’s Work Together
-          </Link>
-          <Link
-            to="/blog"
-            className={`px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-md font-semibold transition border text-xs sm:text-sm md:text-base
-              ${
-                darkMode
-                  ? "border-white text-white hover:bg-white hover:text-black"
-                  : "border-black text-black hover:bg-black hover:text-white"
-              }`}
-          >
-            Read Articles
-          </Link>
-        </div>
-      </div>
-
-      {/* RIGHT: IMAGE */}
-      <div className="flex-1 flex justify-center items-center z-10 mb-6 md:mb-0">
-        <div className="relative group">
-          <div className="p-[6px] sm:p-[8px] md:p-[10px] rounded-full bg-gradient-to-r from-[#166472] via-[#1f538f] to-[#367baf] shadow-xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
-            <img
-              src={programmerGif}
-              alt="Shubham Balgotra"
-              className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 xl:w-48 xl:h-48 2xl:w-52 2xl:h-52 rounded-full bg-white object-contain ring-4 ring-white transition-transform duration-500"
+          <div className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-600 dark:text-gray-300 mb-4 sm:mb-5 md:mb-6 font-medium max-w-[90%] sm:max-w-md md:max-w-lg mx-auto md:mx-0">
+            <Typewriter
+              textStyle={{
+                color: darkMode ? "#FFFFFF" : "#1F2937",
+                fontWeight: 500,
+              }}
+              startDelay={100}
+              cursorColor={darkMode ? "#FFF" : "#2563EB"}
+              multiText={[
+                "MERN Stack Developer",
+                "Technical Support Executive",
+                "Building Responsive Web Apps",
+                "Solving Real-World Tech Problems",
+              ]}
+              multiTextDelay={1500}
+              typeSpeed={30}
+              deleteSpeed={5}
+              loop={true}
             />
           </div>
-          <div className="absolute -inset-1 rounded-full blur-xl opacity-20 bg-gradient-to-r from-[#166472] via-[#1f538f] to-[#367baf] group-hover:opacity-40 transition duration-500 z-[-1]"></div>
-        </div>
-      </div>
 
-      {/* Custom style for 1920px+ */}
-      <style>{`
-        @media (min-width: 1920px) {
-          .custom-3xl\\:scale-\\[1\\.15\\] {
-            transform: scale(1.15);
+          <div className="p-2 flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4">
+            <Link
+              to="/contact"
+              className="px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition text-xs sm:text-sm md:text-base"
+            >
+              Let’s Work Together
+            </Link>
+            <Link
+              to="/blog"
+              className={`px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-md font-semibold transition border text-xs sm:text-sm md:text-base
+                ${
+                  darkMode
+                    ? "border-white text-white hover:bg-white hover:text-black"
+                    : "border-black text-black hover:bg-black hover:text-white"
+                }`}
+            >
+              Read Articles
+            </Link>
+          </div>
+        </div>
+
+        {/* RIGHT: IMAGE */}
+        <div className="flex-1 flex justify-center items-center z-10 mb-6 md:mb-0">
+          <div className="relative group">
+            <div className="p-[6px] sm:p-[8px] md:p-[10px] rounded-full bg-gradient-to-r from-[#166472] via-[#1f538f] to-[#367baf] shadow-xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
+              <img
+                src={programmerGif}
+                alt="Shubham Balgotra"
+                className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 xl:w-48 xl:h-48 2xl:w-52 2xl:h-52 rounded-full bg-white object-contain ring-4 ring-white transition-transform duration-500"
+              />
+            </div>
+            <div className="absolute -inset-1 rounded-full blur-xl opacity-20 bg-gradient-to-r from-[#166472] via-[#1f538f] to-[#367baf] group-hover:opacity-40 transition duration-500 z-[-1]"></div>
+          </div>
+        </div>
+
+        {/* Custom style for 1920px+ */}
+        <style>{`
+          @media (min-width: 1920px) {
+            .custom-3xl\\:scale-\\[1\\.15\\] {
+              transform: scale(1.15);
+            }
           }
-        }
-      `}</style>
-    </section>
+        `}</style>
+      </section>
+
 
       {/* === WHAT I CAN OFFER === */}
       <WhatICanOffer darkMode={darkMode} />
