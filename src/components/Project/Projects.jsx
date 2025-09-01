@@ -1,6 +1,7 @@
 import React from "react";
 import ecommerce from "../../assets/ecommerce.jpg";
 import aroundus from "../../assets/aroundus.png";
+import shestyle from "../../assets/shestyle.png";
 
 const projects = [
   {
@@ -84,4 +85,5 @@ export default function Projects({ darkMode }) {
     </section>
   );
 }
+
 
