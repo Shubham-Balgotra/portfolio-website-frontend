@@ -5,13 +5,14 @@ import shestyle from "../../assets/shestyle.png";
 
 const projects = [
   {
-  title: "SheStyle – Women’s Shopping Platform",
-  tech: "React, Node.js, Express.js, MongoDB, Tailwind CSS",
-  live: "https://shestyle.vercel.app",
-  github: "https://github.com/Shubham-Balgotra/shestyle-frontend",
-  desc: "A modern and responsive e-commerce platform designed for women’s fashion, featuring product listings, filters, cart, and a seamless shopping experience.",
-  image: shestyle,
-},
+    title: "SheStyle – Women’s Shopping Platform",
+    tech: "React, Node.js, Express.js, MongoDB, Tailwind CSS",
+    live: "https://shestyle.vercel.app",
+    github: "https://github.com/Shubham-Balgotra/shestyle-frontend",
+    desc: "A modern and responsive e-commerce platform designed for women’s fashion, featuring product listings, filters, cart, and a seamless shopping experience.",
+    image: shestyle,
+    date: "Aug 2025",
+  },
   {
     title: "Claim & Carry – E-commerce App",
     tech: "React, Node.js, MongoDB, Stripe, Tailwind CSS",
@@ -19,6 +20,7 @@ const projects = [
     github: "https://github.com/Shubham-Balgotra/ecommerce",
     desc: "A full-stack e-commerce platform with user login, product catalog, cart, checkout, and admin features.",
     image: ecommerce,
+    date: "Feb 2025",
   },
   {
     title: "AroundUs – News Aggregator App",
@@ -27,9 +29,8 @@ const projects = [
     github: "https://github.com/Shubham-Balgotra/news-app",
     desc: "A responsive app that fetches and displays categorized news articles using NewsAPI.",
     image: aroundus,
+    date: "Jan 2025",
   },
-  
-
 ];
 
 export default function Projects({ darkMode }) {
@@ -37,9 +38,8 @@ export default function Projects({ darkMode }) {
     <section
       className={` mt-10 w-full px-4 py-10 md:px-12 lg:px-24 xl:px-48 max-w-screen-2xl mx-auto`}
     >
-      {" "}
-       <h2
-        className={`text-2xl md:text-3xl font-bold  mb-6 border-b pb-2 ${
+      <h2
+        className={`text-2xl md:text-3xl font-bold mb-6 border-b pb-2 ${
           darkMode ? "text-white" : "text-gray-800"
         }`}
       >
@@ -47,7 +47,14 @@ export default function Projects({ darkMode }) {
       </h2>
       <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
         {projects.map((project, index) => (
-          <div key={index} className={`${darkMode?"bg-black border hover:border-blue-400":"bg-white"} shadow rounded-lg p-6`}>
+          <div
+            key={index}
+            className={`${
+              darkMode
+                ? "bg-black border hover:border-blue-400"
+                : "bg-white"
+            } shadow rounded-lg p-6`}
+          >
             {project.image && (
               <img
                 src={project.image}
@@ -55,10 +62,27 @@ export default function Projects({ darkMode }) {
                 className="w-full h-auto rounded mb-4 hover:scale-105 transition duration-300 shadow"
               />
             )}
-            <h3 className={`text-lg font-semibold ${darkMode?"text-gray-300":"text-gray-800"} mb-2`}>
+            <h3
+              className={`text-lg font-semibold ${
+                darkMode ? "text-gray-300" : "text-gray-800"
+              } mb-1`}
+            >
               {project.title}
             </h3>
-            <p className={`text-sm ${darkMode?"text-gray-400":"text-gray-600"} mb-2`}>{project.desc}</p>
+            <p
+              className={`text-xs ${
+                darkMode ? "text-gray-500" : "text-gray-500"
+              } mb-2`}
+            >
+              📅 {project.date}
+            </p>
+            <p
+              className={`text-sm ${
+                darkMode ? "text-gray-400" : "text-gray-600"
+              } mb-2`}
+            >
+              {project.desc}
+            </p>
             <p className="text-xs text-gray-500 mb-3 italic">
               Tech: {project.tech}
             </p>
@@ -86,6 +110,3 @@ export default function Projects({ darkMode }) {
     </section>
   );
 }
-
-
-
