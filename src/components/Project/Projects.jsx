@@ -19,6 +19,15 @@ const projects = [
     desc: "A responsive app that fetches and displays categorized news articles using NewsAPI.",
     image: aroundus,
   },
+  {
+  title: "SheStyle – Women’s Shopping Platform",
+  tech: "React, Node.js, Express.js, MongoDB, Tailwind CSS",
+  live: "https://shestyle.vercel.app",
+  github: "https://github.com/Shubham-Balgotra/shestyle-frontend",
+  desc: "A modern and responsive e-commerce platform designed for women’s fashion, featuring product listings, filters, cart, and a seamless shopping experience.",
+  image: shestyle,
+},
+
 ];
 
 export default function Projects({ darkMode }) {
@@ -75,3 +84,4 @@ export default function Projects({ darkMode }) {
     </section>
   );
 }
+
